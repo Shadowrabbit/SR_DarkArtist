@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HediffDef Name="SR_DarkHediffsBase" Abstract="True">
+		<hediffClass>Hediff</hediffClass>
+		<defaultLabelColor>(0.5, 0.5, 0.9)</defaultLabelColor>
+		<makesSickThought>false</makesSickThought>
+		<isBad>false</isBad>
+		<tendable>false</tendable>
+		<scenarioCanAdd>false</scenarioCanAdd>
+	</HediffDef>
+	<HediffDef ParentName="SR_DarkHediffsBase">
+		<defName>SR_BondageBed</defName>
+		<label>束缚床</label>
+		<labelNoun>束缚床</labelNoun>
+		<description>被捆绑play</description>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<setMax>0</setMax>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<setMax>0</setMax>
+					</li>
+				 </capMods>
+			</li>
+		</stages>	
+	</HediffDef>
+	<HediffDef ParentName="SR_DarkHediffsBase">
+		<defName>SR_BondageChains</defName>
+		<label>锁链</label>
+		<labelNoun>锁链</labelNoun>
+		<description>被捆绑play</description>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<setMax>0.35</setMax>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<setMax>0.35</setMax>
+					</li>
+				 </capMods>
+			</li>
+		</stages>	
+	</HediffDef>
+</Defs>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef Name="SR_DarkFurnitureBase" ParentName="FurnitureBase" Abstract="True">
+        <drawGUIOverlay>true</drawGUIOverlay>
+        <canOverlapZones>false</canOverlapZones>
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+        </placeWorkers>
+        <passability>PassThroughOnly</passability>
+        <defaultPlacingRot>South</defaultPlacingRot>
+    </ThingDef>
+    <ThingDef Name="SR_DarkFurnitureWithQualityBase" ParentName="SR_DarkFurnitureBase" Abstract="True">
+        <comps>
+            <li>
+				<compClass>CompColorable</compClass>
+			</li>
+            <li>
+                <compClass>CompQuality</compClass>
+            </li>
+            <li Class="CompProperties_Forbiddable" />
+        </comps>    
+    </ThingDef>
+    <ThingDef ParentName="SR_DarkFurnitureWithQualityBase">
+        <defName>SR_BondageBed</defName>
+        <thingClass>SR.DA.Thing.Building_BondageBed</thingClass>
+        <label>束缚床</label>
+        <description>测试</description>
+        <graphicData>
+        <texPath>Things/Building/Furniture/Bed/Bed</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(2,2)</drawSize>
+            <color>(62,164,249)</color>
+            <damageData>
+                <rect>(0,0.05,1,1.95)</rect>
+            </damageData>
+        </graphicData>
+        <comps>
+            <!-- 设施影响 梳妆台 桌子 -->
+            <li Class="CompProperties_AffectedByFacilities">
+                <linkableFacilities>
+                </linkableFacilities>
+            </li>
+            <li Class="CompProperties_Usable">
+				<compClass>SR.DA.Component.CompBondageUsable</compClass>
+				<useJob>SR_BondageBed</useJob>
+				<useLabel>捆绑</useLabel>
+			</li>
+            <!-- 使用效果 -->
+            <li Class="CompProperties_UseEffect">
+				<compClass>SR.DA.Component.CompEffectBondageBed</compClass>
+			</li>
+            <li Class="CompProperties_UseEffect">
+				<compClass>SR.DA.Component.CompRemoveEffectBondageBed</compClass>
+			</li>
+            <li Class="CompProperties_AssignableToPawn">
+                <drawAssignmentOverlay>false</drawAssignmentOverlay>
+                <compClass>CompAssignableToPawn</compClass>
+            </li>
+        </comps>
+        <statBases>
+            <MaxHitPoints>140</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <Beauty>1</Beauty>
+            <WorkToBuild>800</WorkToBuild>
+            <Mass>30</Mass>
+            <BedRestEffectiveness>1</BedRestEffectiveness>
+            <Comfort>0.75</Comfort>
+            <ImmunityGainSpeedFactor>1.07</ImmunityGainSpeedFactor>
+            <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+        </statBases>
+        <size>(1,2)</size>
+        <stuffCategories>
+            <li>Metallic</li>
+            <li>Woody</li>
+            <li>Stony</li>
+        </stuffCategories>
+        <costStuffCount>45</costStuffCount>
+        <building>
+            <bed_showSleeperBody>False</bed_showSleeperBody>
+            <bed_healPerDay>4</bed_healPerDay>
+        </building>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>60</pathCost>
+        <staticSunShadowHeight>0.17</staticSunShadowHeight>
+        <castEdgeShadows>True</castEdgeShadows>
+        <designationHotKey>Misc2</designationHotKey>
+        <techLevel>Medieval</techLevel>
+        <researchPrerequisites>
+            <li>ComplexFurniture</li>
+        </researchPrerequisites>
+        <uiIconScale>0.90</uiIconScale>
+  </ThingDef>
+</Defs>

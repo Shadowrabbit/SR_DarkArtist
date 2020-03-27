@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<JobDef>
+		<defName>SR_BondageBed</defName>
+		<driverClass>SR.DA.Job.JobDriver_UseBondageBed</driverClass>
+		<reportString>捆绑</reportString>
+	</JobDef>
+	<JobDef>
+		<defName>SR_BondageChains</defName>
+		<driverClass>SR.DA.Job.JobDriver_UseBondageItem</driverClass>
+		<reportString>捆绑</reportString>
+	</JobDef>
+	<JobDef>
+		<defName>SR_ReleaseBed</defName>
+		<driverClass>SR.DA.Job.JobDriver_ReleaseBondageBed</driverClass>
+		<reportString>解放</reportString>
+	</JobDef>
+	<JobDef>
+		<defName>SR_ReleaseChains</defName>
+		<driverClass>SR.DA.Job.JobDriver_ReleaseBondageItem</driverClass>
+		<reportString>解放</reportString>
+	</JobDef>
+</Defs>
