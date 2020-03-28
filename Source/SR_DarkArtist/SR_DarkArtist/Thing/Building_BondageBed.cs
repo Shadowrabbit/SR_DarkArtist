@@ -9,6 +9,11 @@ namespace SR.DA.Thing
     public class Building_BondageBed : Building_Bed
     {
         public Pawn occupant;//使用者
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_References.Look(ref occupant, "occupant");//保存当前使用者
+        }
         /// <summary>
         /// 获取睡眠位置
         /// </summary>
