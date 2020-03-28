@@ -1,7 +1,9 @@
-﻿using System;
-using RimWorld;
+﻿using RimWorld;
 using Verse;
 using SR.DA.Thing;
+using System.Linq;
+using System.Collections.Generic;
+
 namespace SR.DA.Component
 {
     public class CompRemoveEffectBondageChains : CompUseEffect
@@ -15,12 +17,12 @@ namespace SR.DA.Component
             base.DoEffect(usedBy);
             Building_BondageBed building_BondageBed = (Building_BondageBed)parent;
             HediffDef hediffChains = Hediff.HediffDefOf.SR_BondageChains;
-            foreach (var hediff in usedBy.health.hediffSet.hediffs)
+            List<Verse.Hediff>.Enumerator enumerator;
+            enumerator = (from x in usedBy.health.hediffSet.hediffs where x.def == hediffChains select x).ToList().GetEnumerator();
+            while (enumerator.MoveNext())
             {
-                if (hediff.def.defName.Equals(hediffChains.defName))
-                {
-                    usedBy.health.RemoveHediff(hediff);
-                }
+                Verse.Hediff h = enumerator.Current;
+                usedBy.health.RemoveHediff(h);
             }
             building_BondageBed.RemoveOccupant();
         }

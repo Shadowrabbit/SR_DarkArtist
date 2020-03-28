@@ -2,6 +2,8 @@
 using RimWorld;
 using Verse;
 using SR.DA.Thing;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SR.DA.Component
 {
@@ -16,12 +18,12 @@ namespace SR.DA.Component
             base.DoEffect(usedBy);
             Building_BondageBed building_BondageBed = (Building_BondageBed)parent;
             HediffDef hediffBed = Hediff.HediffDefOf.SR_BondageBed;
-            for (int i = 0; i < usedBy.health.hediffSet.hediffs.Count; i++)
+            List<Verse.Hediff>.Enumerator enumerator;
+            enumerator = (from x in usedBy.health.hediffSet.hediffs where x.def == hediffBed select x).ToList<Verse.Hediff>().GetEnumerator();//获取小人身上所有hediffBed
+            while (enumerator.MoveNext())
             {
-                if (usedBy.health.hediffSet.hediffs[i].def.defName.Equals(hediffBed.defName))
-                {
-                    usedBy.health.RemoveHediff(usedBy.health.hediffSet.hediffs[i]);
-                }
+                Verse.Hediff h = enumerator.Current;//当前的hediffBed
+                usedBy.health.RemoveHediff(h);
             }
             building_BondageBed.RemoveOccupant();
         }
