@@ -6,7 +6,7 @@ using Verse.AI;
 using SR.DA.Thing;
 namespace SR.DA.Component
 {
-    public class CompBondageUsable : CompUsable
+    public class CompUsableBondageBed : CompUsable
     {
         /// <summary>
         /// 菜单选项label
@@ -15,7 +15,7 @@ namespace SR.DA.Component
         /// <returns></returns>
         protected override string FloatMenuOptionLabel(Pawn pawn)
         {
-            return "SR_CantTeach".Translate();
+            return "SR_CantUse".Translate();
         }
         /// <summary>
         /// 选项菜单
@@ -74,7 +74,7 @@ namespace SR.DA.Component
                             {
                                 TryStartUseJob(pawn, prisoner);
                             };
-                            string str = TranslatorFormattedStringExtensions.Translate("SR_Teach", pawn.Named(pawn.Name.ToString()), prisoner.Named(prisoner.Name.ToString()));
+                            string str = TranslatorFormattedStringExtensions.Translate("SR_BondageBed", pawn.Named(pawn.Name.ToString()), prisoner.Named(prisoner.Name.ToString()));
                             yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
                         }
                     }

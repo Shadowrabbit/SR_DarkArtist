@@ -9,6 +9,11 @@ namespace SR.DA.Thing
     public class Building_BondageBed : Building_Bed
     {
         public Pawn occupant;//使用者
+
+        public new bool AnyUnoccupiedSleepingSlot { get { return false; } }
+        public new bool AnyUnownedSleepingSlot { get { return false; } }
+        public new bool Medical { get { return false; } }
+        public new bool ForPrisoners { get { return false; } }
         public override void ExposeData()
         {
             base.ExposeData();

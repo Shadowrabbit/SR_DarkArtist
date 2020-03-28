@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using RimWorld;
+using SR.DA.Component;
 using Verse;
 using Verse.AI;
-using SR.DA.Component;
 
 namespace SR.DA.Job
 {
-    public class JobDriver_ReleaseBondageBed : JobDriver_UseItem
+    public class JobDriver_UseElectrocutionChair : JobDriver_UseItem
     {
         protected Verse.Thing thing
         {
@@ -23,7 +23,7 @@ namespace SR.DA.Job
             }
         }
         /// <summary>
-        /// 保留犯人和束缚床
+        /// 保留犯人和电椅
         /// </summary>
         /// <param name="errorOnFailed"></param>
         /// <returns></returns>
@@ -39,25 +39,36 @@ namespace SR.DA.Job
         {
             this.FailOnDestroyedOrNull(TargetIndex.A);
             this.FailOnDestroyedOrNull(TargetIndex.B);
-            this.FailOnDespawnedNullOrForbidden(TargetIndex.A);//床被禁止使用
+            this.FailOnDespawnedNullOrForbidden(TargetIndex.A);//电椅被禁止使用
             this.FailOnAggroMentalStateAndHostile(TargetIndex.B);//B精神不正常
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
+            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch);//走到囚犯身边
+            Toil toil = Toils_Haul.StartCarryThing(TargetIndex.B, false, false, false);//搬运囚犯
+            yield return toil;
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
+            yield return new Toil
+            {
+                initAction = delegate ()
+                {
+                    this.pawn.carryTracker.TryDropCarriedThing(this.thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
+                },
+                defaultCompleteMode = ToilCompleteMode.Instant
+            };
             Pawn prisoner = (Pawn)target;
-            //捆绑操作
+            //操作
             if (!prisoner.Dead)
             {
-                yield return Toils_General.WaitWith(TargetIndex.A, 60, true, true); //交互1秒
+                yield return Toils_General.WaitWith(TargetIndex.B, 60, true, true); //交互1秒
             }
             yield return Toils_Reserve.Release(TargetIndex.A);//释放
             yield return Toils_Reserve.Release(TargetIndex.B);
-            //解除效果
+            //家具的效果
             yield return new Toil
             {
                 initAction = delegate ()
                 {
                     if (thing != null)
                     {
-                        CompRemoveEffectBondageBed compUseEffect = thing.TryGetComp<CompRemoveEffectBondageBed>();//解除束缚床效果
+                        CompEffectElectrocutionChair compUseEffect = thing.TryGetComp<CompEffectElectrocutionChair>();//触发电椅效果
                         if (compUseEffect != null)
                         {
                             compUseEffect.DoEffect(prisoner);

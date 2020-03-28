@@ -41,12 +41,12 @@ namespace SR.DA.Job
             this.FailOnDestroyedOrNull(TargetIndex.B);
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);//床被禁止使用
             this.FailOnAggroMentalStateAndHostile(TargetIndex.B);//B精神不正常
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
             Pawn prisoner = (Pawn)target;
             //捆绑操作
             if (!prisoner.Dead)
             {
-                yield return Toils_General.WaitWith(TargetIndex.B, 60, true, true); //交互1秒
+                yield return Toils_General.WaitWith(TargetIndex.A, 60, true, true); //交互1秒
             }
             yield return Toils_Reserve.Release(TargetIndex.A);//释放
             yield return Toils_Reserve.Release(TargetIndex.B);

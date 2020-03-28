@@ -8,5 +8,6 @@ namespace SR.DA.Hediff
     {
         public static HediffDef SR_BondageBed;
         public static HediffDef SR_BondageChains;
+        public static HediffDef SR_ElectrocutionChair;
     }
 }

@@ -20,4 +20,9 @@
 		<driverClass>SR.DA.Job.JobDriver_ReleaseBondageItem</driverClass>
 		<reportString>解放</reportString>
 	</JobDef>
+	<JobDef>
+		<defName>SR_ElectrocutionChair</defName>
+		<driverClass>SR.DA.Job.JobDriver_UseElectrocutionChair</driverClass>
+		<reportString>处刑</reportString>
+	</JobDef>
 </Defs>

@@ -2,7 +2,7 @@
 <Defs>
 	<HediffDef Name="SR_DarkHediffsBase" Abstract="True">
 		<hediffClass>Hediff</hediffClass>
-		<defaultLabelColor>(0.5, 0.5, 0.9)</defaultLabelColor>
+		<defaultLabelColor>(0.8, 0.8, 0.2)</defaultLabelColor>
 		<makesSickThought>false</makesSickThought>
 		<isBad>false</isBad>
 		<tendable>false</tendable>
@@ -10,8 +10,8 @@
 	</HediffDef>
 	<HediffDef ParentName="SR_DarkHediffsBase">
 		<defName>SR_BondageBed</defName>
-		<label>束缚床</label>
-		<labelNoun>束缚床</labelNoun>
+		<label>束缚(束缚床)</label>
+		<labelNoun>束缚(束缚床)</labelNoun>
 		<description>被捆绑play</description>
 		<stages>
 			<li>
@@ -30,8 +30,8 @@
 	</HediffDef>
 	<HediffDef ParentName="SR_DarkHediffsBase">
 		<defName>SR_BondageChains</defName>
-		<label>锁链</label>
-		<labelNoun>锁链</labelNoun>
+		<label>束缚(锁链)</label>
+		<labelNoun>束缚(锁链)</labelNoun>
 		<description>被捆绑play</description>
 		<stages>
 			<li>
@@ -43,6 +43,31 @@
 					<li>
 						<capacity>Moving</capacity>
 						<setMax>0.35</setMax>
+					</li>
+				 </capMods>
+			</li>
+		</stages>	
+	</HediffDef>
+	<HediffDef>
+		<defName>SR_ElectrocutionChair</defName>
+		<hediffClass>Hediff</hediffClass>
+		<defaultLabelColor>(0.7, 0.7, 0.3)</defaultLabelColor>
+		<makesSickThought>false</makesSickThought>
+		<isBad>true</isBad>
+		<tendable>true</tendable>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<label>麻痹(电椅)</label>
+		<labelNoun>麻痹(电椅)</labelNoun>
+		<description>被电击</description>
+		<stages>
+			<li>
+				<painOffset>0.2</painOffset>
+				<label>mild pain</label>
+				<restFallFactorOffset>0.7</restFallFactorOffset>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>-0.3</offset>
 					</li>
 				 </capMods>
 			</li>

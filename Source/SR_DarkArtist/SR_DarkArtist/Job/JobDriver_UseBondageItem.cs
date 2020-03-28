@@ -43,7 +43,7 @@ namespace SR.DA.Job
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch);//走到囚犯身边
             Toil toil = Toils_Haul.StartCarryThing(TargetIndex.B, false, false, false);//搬运囚犯
             yield return toil;
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
             yield return new Toil
             {
                 initAction = delegate ()
@@ -56,7 +56,7 @@ namespace SR.DA.Job
             //捆绑操作
             if (!prisoner.Dead)
             {
-                yield return Toils_General.WaitWith(TargetIndex.B, 60, true, true); //交互1秒
+                yield return Toils_General.WaitWith(TargetIndex.A, 60, true, true); //交互1秒
             }
             yield return Toils_Reserve.Release(TargetIndex.A);//释放
             yield return Toils_Reserve.Release(TargetIndex.B);
