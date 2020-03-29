@@ -57,6 +57,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\CompProperties_HighVoltage.cs" />
+    <Compile Include="Component\CompHighVoltage.cs" />
     <Compile Include="Component\CompEffectElectrocutionChair.cs" />
     <Compile Include="Component\CompUsableElectrocutionChair.cs" />
     <Compile Include="Component\CompRemoveEffectBondageBed.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Job\JobDriver_ReleaseBondageBed.cs" />
     <Compile Include="Job\JobDriver_UseBondageItem.cs" />
     <Compile Include="Job\JobDriver_UseBondageBed.cs" />
+    <Compile Include="Patch\Patch_Pawn.cs" />
     <Compile Include="Patch\Patch_Pawn_CarryTracker.cs" />
     <Compile Include="Patch\Patch_RestUtility.cs" />
     <Compile Include="Patch\PatchMain.cs" />

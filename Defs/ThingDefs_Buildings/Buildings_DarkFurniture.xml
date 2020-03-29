@@ -119,7 +119,10 @@
             <compClass>CompPowerTrader</compClass>
             <basePowerConsumption>50</basePowerConsumption>
           </li>
+          <!-- 可以断电的命令 -->
           <li Class="CompProperties_Flickable"/>
+          <!-- 可以增加电压的命令 -->
+          <li Class="SR.DA.Component.CompProperties_HighVoltage"/>
       </comps>
       <altitudeLayer>Building</altitudeLayer>
       <statBases>
@@ -137,7 +140,8 @@
       </stuffCategories>
       <costStuffCount>45</costStuffCount>
       <costList>
-        <Gold>20</Gold>
+        <ComponentIndustrial>1</ComponentIndustrial>
+        <Steel>50</Steel>
       </costList>
       <pathCost>30</pathCost>
       <designationHotKey>Misc7</designationHotKey>

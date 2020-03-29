@@ -19,13 +19,19 @@ namespace SR.DA.Component
             HediffDef hediffBed = Hediff.HediffDefOf.SR_BondageBed;
             foreach (BodyPartRecord bpr in usedBy.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Arm))
             {
-                usedBy.health.AddHediff(hediffBed, bpr, null, null);
+                if (bpr!=null)
+                {
+                    usedBy.health.AddHediff(hediffBed, bpr, null, null);
+                }
             }
             foreach (BodyPartRecord bpr in usedBy.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Leg))
             {
-                usedBy.health.AddHediff(hediffBed, bpr, null, null);
+                if (bpr!=null)
+                {
+                    usedBy.health.AddHediff(hediffBed, bpr, null, null);
+                }
             }
-            MoteMaker.ThrowText(usedBy.PositionHeld.ToVector3(), usedBy.MapHeld, "束缚".Translate(), 12f);
+            MoteMaker.ThrowText(usedBy.PositionHeld.ToVector3(), usedBy.MapHeld, "SR_Bondage".Translate(), 4f);
         }
     }
 }

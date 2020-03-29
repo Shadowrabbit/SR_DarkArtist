@@ -9,7 +9,7 @@ namespace SR.DA.Thing
     public class Building_ElectrocutionChair : Building
     {
         private bool isUsing = false;
-        private static readonly float workingPower = 2000f;//工作耗电,使用是会给电力系统增加负荷
+        private static readonly float workingPower = 5000f;//工作耗电,使用是会给电力系统增加负荷
         private CompPowerTrader cpt;
         private CompFlickable cf;
         public override void ExposeData()

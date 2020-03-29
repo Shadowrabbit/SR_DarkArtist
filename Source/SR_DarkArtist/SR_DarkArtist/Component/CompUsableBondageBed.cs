@@ -32,7 +32,7 @@ namespace SR.DA.Component
                 {
                     TryReleasePrisoner(pawn, bbb.occupant);
                 };
-                string str = TranslatorFormattedStringExtensions.Translate("SR_Release", bbb.occupant.Named(bbb.occupant.Name.ToString()));
+                string str = TranslatorFormattedStringExtensions.Translate("SR_ReleaseSomeBody", bbb.occupant.Named(bbb.occupant.Name.ToString()));
                 yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
             }
             else

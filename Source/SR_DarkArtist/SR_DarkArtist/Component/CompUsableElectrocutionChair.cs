@@ -14,7 +14,7 @@ namespace SR.DA.Component
         /// <returns></returns>
         protected override string FloatMenuOptionLabel(Pawn pawn)
         {
-            return "SR_CantTeach".Translate();
+            return "SR_CantUse".Translate();
         }
         /// <summary>
         /// 选项菜单

@@ -67,7 +67,6 @@ namespace SR.DA.Job
                     if (!cpt.PowerOn)
                     {
                         ////Power interruption leads to { 0 } electrocution failure
-                        ///电力中断导致{0}电刑失败
                         Messages.Message("SR_ElectrocutionFailure".Translate(prisoner.Label), MessageTypeDefOf.NeutralEvent);
                         pawn.jobs.EndCurrentJob(JobCondition.Incompletable, true, true);
                     }

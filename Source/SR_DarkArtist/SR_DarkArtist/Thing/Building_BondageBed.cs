@@ -52,7 +52,7 @@ namespace SR.DA.Thing
             if (occupant != null)
             {
                 Color defaultThingLabelColor = Color.yellow;
-                GenMapUI.DrawThingLabel(this, "SR_Bound".Translate(), defaultThingLabelColor);
+                GenMapUI.DrawThingLabel(this, "SR_Bondage".Translate(), defaultThingLabelColor);
             }
         }
         /// <summary>
