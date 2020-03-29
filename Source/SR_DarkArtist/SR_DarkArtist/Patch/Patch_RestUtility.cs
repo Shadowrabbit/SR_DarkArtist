@@ -26,7 +26,6 @@ class Patch_RestUtility
             //如果目标床是束缚床则本次查找失败
             if (bedThing.def.defName.Equals("SR_BondageBed"))
             {
-                Verse.Log.Error("the bed is bondagebed");
                 __result = false;
                 return false;
             }

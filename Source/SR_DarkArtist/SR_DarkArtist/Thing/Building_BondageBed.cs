@@ -9,7 +9,8 @@ namespace SR.DA.Thing
     public class Building_BondageBed : Building_Bed
     {
         public Pawn occupant;//使用者
-
+        private static readonly Color SheetColorMedicalForPrisoner = new Color(0.654902f, 0.3764706f, 0.152941182f);
+        public override Color DrawColorTwo => SheetColorMedicalForPrisoner;
         public new bool AnyUnoccupiedSleepingSlot { get { return false; } }
         public new bool AnyUnownedSleepingSlot { get { return false; } }
         public new bool Medical { get { return false; } }

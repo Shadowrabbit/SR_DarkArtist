@@ -48,29 +48,23 @@
 			</li>
 		</stages>	
 	</HediffDef>
-	<HediffDef>
+	<HediffDef ParentName="InjuryBase">
 		<defName>SR_ElectrocutionChair</defName>
-		<hediffClass>Hediff</hediffClass>
-		<defaultLabelColor>(0.7, 0.7, 0.3)</defaultLabelColor>
-		<makesSickThought>false</makesSickThought>
-		<isBad>true</isBad>
-		<tendable>true</tendable>
-		<scenarioCanAdd>true</scenarioCanAdd>
 		<label>麻痹(电椅)</label>
 		<labelNoun>麻痹(电椅)</labelNoun>
-		<description>被电击</description>
-		<stages>
-			<li>
-				<painOffset>0.2</painOffset>
-				<label>mild pain</label>
-				<restFallFactorOffset>0.7</restFallFactorOffset>
-				<capMods>
-					<li>
-						<capacity>Consciousness</capacity>
-						<offset>-0.3</offset>
-					</li>
-				 </capMods>
+		<description>麻痹(电椅)</description>
+		<comps>
+			<li Class="HediffCompProperties_TendDuration">
+				<labelTendedWell>bandaged</labelTendedWell>
+				<labelTendedWellInner>tended</labelTendedWellInner>
+				<labelSolidTendedWell>set</labelSolidTendedWell>
 			</li>
-		</stages>	
-	</HediffDef>
+		</comps>
+		<injuryProps>
+		<painPerSeverity>0.015</painPerSeverity>
+		<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+		<canMerge>true</canMerge>
+		<destroyedLabel>Destroyed</destroyedLabel>
+		</injuryProps>
+  	</HediffDef>
 </Defs>

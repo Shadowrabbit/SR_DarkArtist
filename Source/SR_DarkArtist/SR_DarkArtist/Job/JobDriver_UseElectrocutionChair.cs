@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using RimWorld;
 using SR.DA.Component;
+using SR.DA.Thing;
 using Verse;
 using Verse.AI;
 
@@ -54,10 +56,23 @@ namespace SR.DA.Job
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
             Pawn prisoner = (Pawn)target;
-            //操作
+            Building_ElectrocutionChair chair = (Building_ElectrocutionChair)thing;
             if (!prisoner.Dead)
             {
-                yield return Toils_General.WaitWith(TargetIndex.B, 60, true, true); //交互1秒
+                Toil toilWaitWith = Toils_General.WaitWith(TargetIndex.B, 180, true, true); //交互3秒
+                var cpt = chair.GetComp<CompPowerTrader>() ?? throw new Exception("cant find comp:CompPowerTrader");
+                toilWaitWith.AddPreInitAction(()=> { chair.OnOrOff(true); });
+                toilWaitWith.AddFinishAction(()=> { chair.OnOrOff(false); });
+                toilWaitWith.tickAction = delegate () {
+                    if (!cpt.PowerOn)
+                    {
+                        ////Power interruption leads to { 0 } electrocution failure
+                        ///电力中断导致{0}电刑失败
+                        Messages.Message("SR_ElectrocutionFailure".Translate(prisoner.Label), MessageTypeDefOf.NeutralEvent);
+                        pawn.jobs.EndCurrentJob(JobCondition.Incompletable, true, true);
+                    }
+                };
+                yield return toilWaitWith; //交互1秒
             }
             yield return Toils_Reserve.Release(TargetIndex.A);//释放
             yield return Toils_Reserve.Release(TargetIndex.B);

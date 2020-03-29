@@ -25,6 +25,7 @@ namespace SR.DA.Component
                 usedBy.health.RemoveHediff(h);
             }
             building_BondageBed.RemoveOccupant();
+            MoteMaker.ThrowText(usedBy.PositionHeld.ToVector3(), usedBy.MapHeld, "解放".Translate(), 12f);
         }
     }
 }

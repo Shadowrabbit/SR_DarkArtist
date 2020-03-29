@@ -50,23 +50,40 @@ namespace SR.DA.Component
             }
             else
             {
-                bool hasPrisoner = false;
-                foreach (Pawn prisoner in pawn.Map.mapPawns.AllPawns)
+                //电力组件
+                CompPowerTrader cptu = parent.GetComp<CompPowerTrader>();
+                if (cptu!=null)
                 {
-                    if (prisoner != pawn && prisoner.Spawned && prisoner.IsPrisonerOfColony)
+                    if (cptu.PowerOn)
                     {
-                        hasPrisoner = true;
-                        Action action = delegate ()
+                        bool hasPrisoner = false;
+                        foreach (Pawn prisoner in pawn.Map.mapPawns.AllPawns)
                         {
-                            TryStartUseJob(pawn, prisoner);
-                        };
-                        string str = TranslatorFormattedStringExtensions.Translate("SR_ElectocutionChair", pawn.Named(pawn.Name.ToString()), prisoner.Named(prisoner.Name.ToString()));
-                        yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                            if (prisoner != pawn && prisoner.Spawned && prisoner.IsPrisonerOfColony)
+                            {
+                                hasPrisoner = true;
+                                Action action = delegate ()
+                                {
+                                    TryStartUseJob(pawn, prisoner);
+                                };
+                                string str = TranslatorFormattedStringExtensions.Translate("SR_ElectocutionChair", pawn.Named(pawn.Name.ToString()), prisoner.Named(prisoner.Name.ToString()));
+                                yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                            }
+                        }
+                        //没有可用的囚犯
+                        if (!hasPrisoner)
+                        {
+                            yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "SR_NoPrisoner".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                        }
+                    }
+                    //电力不足
+                    else{
+                        yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "SR_NoPower".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
                     }
                 }
-                if (!hasPrisoner)
+                else
                 {
-                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "SR_NoPrisoner".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                    Log.Warning("cant find Comp:PowerTraderUsable");
                 }
             }
         }

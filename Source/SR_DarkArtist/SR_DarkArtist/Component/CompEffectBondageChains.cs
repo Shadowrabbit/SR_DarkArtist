@@ -25,6 +25,7 @@ namespace SR.DA.Component
             {
                 usedBy.health.AddHediff(hediffChains, bpr, null, null);
             }
+            MoteMaker.ThrowText(usedBy.PositionHeld.ToVector3(), usedBy.MapHeld, "束缚".Translate(), 12f);
         }
     }
 }
