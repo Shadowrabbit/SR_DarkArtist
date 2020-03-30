@@ -32,7 +32,7 @@ namespace SR.DA.Component
                 {
                     TryReleasePrisoner(pawn, bbb.occupant);
                 };
-                string str = TranslatorFormattedStringExtensions.Translate("SR_ReleaseSomeBody", bbb.occupant.Named(bbb.occupant.Name.ToString()));
+                string str = TranslatorFormattedStringExtensions.Translate("SR_Release_BondageBed", bbb.occupant.Named(bbb.occupant.Name.ToString()));
                 yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
             }
             else
@@ -102,7 +102,7 @@ namespace SR.DA.Component
                 return;
             }
             //分配job
-            Verse.AI.Job job = extraTarget.IsValid ? JobMaker.MakeJob(SR.DA.Job.JobDefOf.SR_ReleaseBed, parent, extraTarget) : JobMaker.MakeJob(this.Props.useJob, this.parent);
+            Verse.AI.Job job = extraTarget.IsValid ? JobMaker.MakeJob(Job.JobDefOf.SR_ReleaseBed, parent, extraTarget) : JobMaker.MakeJob(Job.JobDefOf.SR_ReleaseBed, this.parent);
             job.count = 1;
             pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
         }

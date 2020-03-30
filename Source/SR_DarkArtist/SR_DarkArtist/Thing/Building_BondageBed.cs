@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using SR.DA.Component;
 
 namespace SR.DA.Thing
 {
@@ -83,7 +85,8 @@ namespace SR.DA.Thing
         /// <param name="mode"></param>
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
-            RemoveOccupant();
+            var crebb = GetComp<CompRemoveEffectBondageBed>() ?? throw new Exception("cant find comp : CompRemoveEffectBondageBed");
+            crebb.DoEffect(occupant);//解除使用者
             Room room = this.GetRoom(RegionType.Set_Passable);
             base.DeSpawn(mode);
             if (room != null)

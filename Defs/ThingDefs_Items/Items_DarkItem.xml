@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="ResourceBase">
+    <defName>SR_Chains</defName>
+    <label>锁链</label>
+    <thingClass>ThingWithComps</thingClass>
+    <description>用于捆绑play</description>
+    <graphicData>
+      <texPath>Things/Item/Special/SubpersonaCoreTechprof</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <MarketValue>200</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>2.0</Mass>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <alwaysHaulable>true</alwaysHaulable>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>SR.DA.Component.CompUsableBondageChians</compClass>
+        <useJob>SR_BondageChains</useJob>
+        <useLabel>使用锁链</useLabel>
+      </li>
+      <li Class="CompProperties_UseEffect">
+        <compClass>SR.DA.Component.CompEffectBondageChains</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+</Defs>

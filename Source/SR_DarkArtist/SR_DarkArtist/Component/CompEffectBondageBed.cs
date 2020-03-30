@@ -1,5 +1,4 @@
-﻿using System;
-using RimWorld;
+﻿using RimWorld;
 using Verse;
 using SR.DA.Thing;
 
@@ -17,21 +16,29 @@ namespace SR.DA.Component
             Building_BondageBed building_BondageBed = (Building_BondageBed)parent;
             building_BondageBed.SetOccupant(usedBy);//设置使用者
             HediffDef hediffBed = Hediff.HediffDefOf.SR_BondageBed;
-            foreach (BodyPartRecord bpr in usedBy.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Arm))
+            var arms = usedBy.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Arm);
+            if (arms!=null)
             {
-                if (bpr!=null)
+                foreach (BodyPartRecord bpr in arms)
                 {
-                    usedBy.health.AddHediff(hediffBed, bpr, null, null);
+                    //该部位没有缺失
+                    if (bpr != null && !usedBy.health.hediffSet.PartIsMissing(bpr))
+                    {
+                        usedBy.health.AddHediff(hediffBed, bpr, null, null);
+                    }
                 }
             }
-            foreach (BodyPartRecord bpr in usedBy.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Leg))
+            var legs = usedBy.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Leg);
+            if (legs!=null)
             {
-                if (bpr!=null)
+                foreach (BodyPartRecord bpr in legs)
                 {
-                    usedBy.health.AddHediff(hediffBed, bpr, null, null);
+                    if (bpr != null && !usedBy.health.hediffSet.PartIsMissing(bpr))
+                    {
+                        usedBy.health.AddHediff(hediffBed, bpr, null, null);
+                    }
                 }
             }
-            MoteMaker.ThrowText(usedBy.PositionHeld.ToVector3(), usedBy.MapHeld, "SR_Bondage".Translate(), 4f);
         }
     }
 }

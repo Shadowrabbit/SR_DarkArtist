@@ -21,26 +21,29 @@ class Patch_Pawn_CarryTracker
         [HarmonyPrefix]
         static bool Prefix(ref int __result, Thing item, int count, bool reserve = true)
         {
-            if (item.GetType() == typeof(Pawn))
+            if (item!=null)
             {
-                Pawn p = (Pawn)item;//搬运的是人形
-                bool hasBondageBed = false;//没有被束缚床束缚
-                for (int i = 0; i < p.health.hediffSet.hediffs.Count; i++)
+                if (item.GetType() == typeof(Pawn))
                 {
-                    if (p.health.hediffSet.hediffs[i].def == SR.DA.Hediff.HediffDefOf.SR_BondageBed)
+                    Pawn p = (Pawn)item;//搬运的是人形
+                    bool hasBondageBed = false;//没有被束缚床束缚
+                    for (int i = 0; i < p.health.hediffSet.hediffs.Count; i++)
                     {
-                        hasBondageBed = true;
-                        break;
+                        if (p.health.hediffSet.hediffs[i].def == SR.DA.Hediff.HediffDefOf.SR_BondageBed)
+                        {
+                            hasBondageBed = true;
+                            break;
+                        }
                     }
-                }
-                //如果已经被束缚
-                if (hasBondageBed)
-                {
-                    Building_BondageBed bbb = (Building_BondageBed)p.CurrentBed();//获取当前躺着的束缚床
-                    CompRemoveEffectBondageBed crebb = bbb.GetComp<CompRemoveEffectBondageBed>();
-                    if (crebb != null)
+                    //如果已经被束缚
+                    if (hasBondageBed)
                     {
-                        crebb.DoEffect(p);//解除束缚
+                        Building_BondageBed bbb = (Building_BondageBed)p.CurrentBed();//获取当前躺着的束缚床
+                        CompRemoveEffectBondageBed crebb = bbb.GetComp<CompRemoveEffectBondageBed>();
+                        if (crebb != null)
+                        {
+                            crebb.DoEffect(p);//解除束缚
+                        }
                     }
                 }
             }
@@ -53,26 +56,29 @@ class Patch_Pawn_CarryTracker
         [HarmonyPrefix]
         static bool Prefix(ref bool __result, Thing item)
         {
-            if (item.GetType() == typeof(Pawn))
+            if (item!=null)
             {
-                Pawn p = (Pawn)item;//搬运的是人形
-                bool hasBondageBed = false;//没有被束缚床束缚
-                for (int i = 0; i < p.health.hediffSet.hediffs.Count; i++)
+                if (item.GetType() == typeof(Pawn))
                 {
-                    if (p.health.hediffSet.hediffs[i].def == SR.DA.Hediff.HediffDefOf.SR_BondageBed)
+                    Pawn p = (Pawn)item;//搬运的是人形
+                    bool hasBondageBed = false;//没有被束缚床束缚
+                    for (int i = 0; i < p.health.hediffSet.hediffs.Count; i++)
                     {
-                        hasBondageBed = true;
-                        break;
+                        if (p.health.hediffSet.hediffs[i].def == SR.DA.Hediff.HediffDefOf.SR_BondageBed)
+                        {
+                            hasBondageBed = true;
+                            break;
+                        }
                     }
-                }
-                //如果已经被束缚
-                if (hasBondageBed)
-                {
-                    Building_BondageBed bbb = (Building_BondageBed)p.CurrentBed();//获取当前躺着的束缚床
-                    CompRemoveEffectBondageBed crebb = bbb.GetComp<CompRemoveEffectBondageBed>();
-                    if (crebb != null)
+                    //如果已经被束缚
+                    if (hasBondageBed)
                     {
-                        crebb.DoEffect(p);//解除束缚
+                        Building_BondageBed bbb = (Building_BondageBed)p.CurrentBed();//获取当前躺着的束缚床
+                        CompRemoveEffectBondageBed crebb = bbb.GetComp<CompRemoveEffectBondageBed>();
+                        if (crebb != null)
+                        {
+                            crebb.DoEffect(p);//解除束缚
+                        }
                     }
                 }
             }

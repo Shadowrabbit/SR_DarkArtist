@@ -1,25 +1,28 @@
 ﻿using System.Collections.Generic;
 using RimWorld;
-using SR.DA.Component;
 using Verse;
 using Verse.AI;
 
 namespace SR.DA.Job
 {
-    public class JobDriver_UseBondageBed : JobDriver_UseItem
+    public class JobDriver_UseBondageChains : JobDriver_UseItem
     {
-        protected Verse.Thing Thing {
-            get {
+        protected Verse.Thing Thing
+        {
+            get
+            {
                 return job.GetTarget(TargetIndex.A).Thing;
             }
         }
-        protected Verse.Thing Target {
-            get {
+        protected Verse.Thing Target
+        {
+            get
+            {
                 return job.GetTarget(TargetIndex.B).Thing;
             }
         }
         /// <summary>
-        /// 保留犯人和束缚床
+        /// 保留犯人和道具
         /// </summary>
         /// <param name="errorOnFailed"></param>
         /// <returns></returns>
@@ -35,23 +38,25 @@ namespace SR.DA.Job
         {
             this.FailOnDestroyedOrNull(TargetIndex.A);
             this.FailOnDestroyedOrNull(TargetIndex.B);
+            //this.FailOnDespawnedNullOrForbidden(TargetIndex.A);//如果物品没有forbidden组件千万不要用这个条件，会直接判断失败
             this.FailOnAggroMentalStateAndHostile(TargetIndex.B);//B精神不正常
-            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch);//走到囚犯身边
-            yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, false, false);//搬运囚犯
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch);//走到道具
             yield return new Toil
             {
-                initAction = delegate ()
-                {
-                    this.pawn.carryTracker.TryDropCarriedThing(this.Thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
-                },
+                initAction = () => { pawn.carryTracker.TryStartCarry(Thing, 1, true); },
+                defaultCompleteMode = ToilCompleteMode.Instant
+            };
+            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.Touch);//走到囚犯
+            yield return new Toil
+            {
+                initAction = () => { pawn.carryTracker.TryDropCarriedThing(this.Target.Position, ThingPlaceMode.Near, out Verse.Thing thing, null); },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
             Pawn prisoner = (Pawn)Target;
             //捆绑操作
             if (!prisoner.Dead)
             {
-                yield return Toils_General.WaitWith(TargetIndex.A, 60, true, true); //交互1秒
+                yield return Toils_General.WaitWith(TargetIndex.B, 60, true, true); //交互1秒
                 yield return Toils_Reserve.Release(TargetIndex.A);//释放
                 yield return Toils_Reserve.Release(TargetIndex.B);
                 //家具的效果
@@ -61,7 +66,7 @@ namespace SR.DA.Job
                     {
                         if (Thing != null)
                         {
-                            CompEffectBondageBed compUseEffect = Thing.TryGetComp<CompEffectBondageBed>();//触发束缚效果
+                            CompUseEffect compUseEffect = Thing.TryGetComp<CompUseEffect>();
                             if (compUseEffect != null)
                             {
                                 compUseEffect.DoEffect(prisoner);

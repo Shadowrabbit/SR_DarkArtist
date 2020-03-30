@@ -16,7 +16,6 @@ namespace SR.DA.Component
             base.DoEffect(usedBy);
             var damageInfo = new DamageInfo(Damage.DamageDefOf.SR_DamageElectrocution, DmgAmount);
             usedBy.TakeDamage(damageInfo);
-            MoteMaker.ThrowText(usedBy.PositionHeld.ToVector3(), usedBy.MapHeld, "SR_ElectricShock".Translate(), 4f);
         }
         public override void ReceiveCompSignal(string signal)
         {

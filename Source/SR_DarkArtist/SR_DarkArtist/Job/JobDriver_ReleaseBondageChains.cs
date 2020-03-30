@@ -6,20 +6,13 @@ using SR.DA.Component;
 
 namespace SR.DA.Job
 {
-    public class JobDriver_ReleaseBondageBed : JobDriver_UseItem
+    public class JobDriver_ReleaseBondageChains : JobDriver_UseItem
     {
-        protected Verse.Thing Thing
-        {
-            get
-            {
-                return job.GetTarget(TargetIndex.A).Thing;
-            }
-        }
         protected Verse.Thing Target
         {
             get
             {
-                return job.GetTarget(TargetIndex.B).Thing;
+                return job.GetTarget(TargetIndex.A).Thing;
             }
         }
         /// <summary>
@@ -29,7 +22,7 @@ namespace SR.DA.Job
         /// <returns></returns>
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            return this.pawn.Reserve(Thing, job, 1, -1, null, errorOnFailed) && this.pawn.Reserve(Target, job, 1, -1, null, errorOnFailed);
+            return pawn.Reserve(Target, job, 1, -1, null, errorOnFailed);
         }
         /// <summary>
         /// 行为过程
@@ -38,29 +31,24 @@ namespace SR.DA.Job
         protected override IEnumerable<Toil> MakeNewToils()
         {
             this.FailOnDestroyedOrNull(TargetIndex.A);
-            this.FailOnDestroyedOrNull(TargetIndex.B);
-            this.FailOnDespawnedNullOrForbidden(TargetIndex.A);//床被禁止使用
-            this.FailOnAggroMentalStateAndHostile(TargetIndex.B);//B精神不正常
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
+            this.FailOnAggroMentalStateAndHostile(TargetIndex.A);//B精神不正常
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
             Pawn prisoner = (Pawn)Target;
-            //捆绑操作
-            if (!prisoner.Dead)
+            if (prisoner!=null && !prisoner.Dead)
             {
                 yield return Toils_General.WaitWith(TargetIndex.A, 60, true, true); //交互1秒
                 yield return Toils_Reserve.Release(TargetIndex.A);//释放
-                yield return Toils_Reserve.Release(TargetIndex.B);
-                //解除效果
                 yield return new Toil
                 {
                     initAction = delegate ()
                     {
-                        if (Thing != null)
+                        if (prisoner != null)
                         {
-                            CompRemoveEffectBondageBed compUseEffect = Thing.TryGetComp<CompRemoveEffectBondageBed>();//解除束缚床效果
+                            CompUsableRemoveEffectChians compUseEffect = prisoner.TryGetComp<CompUsableRemoveEffectChians>();//触发效果
                             if (compUseEffect != null)
                             {
-                                compUseEffect.DoEffect(prisoner);
-                                MoteMaker.ThrowText(Target.PositionHeld.ToVector3(), Target.MapHeld, "SR_Release".Translate(), 4f);
+                                compUseEffect.UsedBy(prisoner);
+                                MoteMaker.ThrowText(prisoner.PositionHeld.ToVector3(), prisoner.MapHeld, "SR_Release".Translate(), 4f);
                             }
                         }
                     },

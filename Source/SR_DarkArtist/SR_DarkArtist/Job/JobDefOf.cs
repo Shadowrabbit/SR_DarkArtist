@@ -8,8 +8,7 @@ namespace SR.DA.Job
     public static class JobDefOf
     {
         public static JobDef SR_BondageBed;
-        public static JobDef SR_BondageChains;
         public static JobDef SR_ReleaseBed;
-        public static JobDef SR_ReleaseChains;
+        public static JobDef SR_BondageChains;
     }
 }

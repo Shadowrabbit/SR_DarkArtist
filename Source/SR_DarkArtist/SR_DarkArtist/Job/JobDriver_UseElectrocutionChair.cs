@@ -10,14 +10,14 @@ namespace SR.DA.Job
 {
     public class JobDriver_UseElectrocutionChair : JobDriver_UseItem
     {
-        protected Verse.Thing thing
+        protected Verse.Thing Thing
         {
             get
             {
                 return job.GetTarget(TargetIndex.A).Thing;
             }
         }
-        protected Verse.Thing target
+        protected Verse.Thing Target
         {
             get
             {
@@ -31,7 +31,7 @@ namespace SR.DA.Job
         /// <returns></returns>
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            return this.pawn.Reserve(thing, job, 1, -1, null, errorOnFailed) && this.pawn.Reserve(target, job, 1, -1, null, errorOnFailed);
+            return this.pawn.Reserve(Thing, job, 1, -1, null, errorOnFailed) && this.pawn.Reserve(Target, job, 1, -1, null, errorOnFailed);
         }
         /// <summary>
         /// 行为过程
@@ -41,22 +41,20 @@ namespace SR.DA.Job
         {
             this.FailOnDestroyedOrNull(TargetIndex.A);
             this.FailOnDestroyedOrNull(TargetIndex.B);
-            this.FailOnDespawnedNullOrForbidden(TargetIndex.A);//电椅被禁止使用
             this.FailOnAggroMentalStateAndHostile(TargetIndex.B);//B精神不正常
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch);//走到囚犯身边
-            Toil toil = Toils_Haul.StartCarryThing(TargetIndex.B, false, false, false);//搬运囚犯
-            yield return toil;
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
+            yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, false, false);//搬运囚犯
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
             yield return new Toil
             {
                 initAction = delegate ()
                 {
-                    this.pawn.carryTracker.TryDropCarriedThing(this.thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
+                    this.pawn.carryTracker.TryDropCarriedThing(this.Thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
-            Pawn prisoner = (Pawn)target;
-            Building_ElectrocutionChair chair = (Building_ElectrocutionChair)thing;
+            Pawn prisoner = (Pawn)Target;
+            Building_ElectrocutionChair chair = (Building_ElectrocutionChair)Thing;
             if (!prisoner.Dead)
             {
                 Toil toilWaitWith = Toils_General.WaitWith(TargetIndex.B, 180, true, true); //交互3秒
@@ -80,12 +78,13 @@ namespace SR.DA.Job
             {
                 initAction = delegate ()
                 {
-                    if (thing != null)
+                    if (Thing != null)
                     {
-                        CompEffectElectrocutionChair compUseEffect = thing.TryGetComp<CompEffectElectrocutionChair>();//触发电椅效果
+                        CompEffectElectrocutionChair compUseEffect = Thing.TryGetComp<CompEffectElectrocutionChair>();//触发电椅效果
                         if (compUseEffect != null)
                         {
                             compUseEffect.DoEffect(prisoner);
+                            MoteMaker.ThrowText(Target.PositionHeld.ToVector3(), Target.MapHeld, "SR_ElectricShock".Translate(), 4f);
                         }
                     }
                 },

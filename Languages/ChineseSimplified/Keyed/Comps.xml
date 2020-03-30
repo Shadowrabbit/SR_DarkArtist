@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
     <SR_Bondage>束缚</SR_Bondage>
+    <SR_Release>解放</SR_Release>
     <SR_ElectricShock>电击</SR_ElectricShock>
     <SR_HighVoltageOn>已启动高电压模式</SR_HighVoltageOn>
     <SR_HighVoltageOff>已关闭高电压模式</SR_HighVoltageOff>
     <SR_CommandDesignateHighVoltageLabel>提高电压</SR_CommandDesignateHighVoltageLabel>
     <SR_CommandDesignateHighVoltageDesc>不开玩笑，这个电压容易发生人命事故</SR_CommandDesignateHighVoltageDesc>
-    <SR_Release>释放</SR_Release>
-    <SR_ReleaseSomeBody>释放{0}</SR_ReleaseSomeBody>
+    <SR_Release_BondageBed>解除{0}的束缚(束缚床)</SR_Release_BondageBed>
+    <SR_Release_BondageChains>解除{0}的束缚(锁链)</SR_Release_BondageChains>
     <SR_CantUse>无法使用</SR_CantUse>
     <SR_CantWork>监管工作禁用</SR_CantWork>
-    <SR_BondageBed>束缚{1}</SR_BondageBed>
     <SR_NoPrisoner>没有囚犯</SR_NoPrisoner>
-    <SR_ElectocutionChair>对{1}实施电刑</SR_ElectocutionChair>
     <SR_NoPower>电力不足</SR_NoPower>
+    <SR_BondageBed>将{1}绑到束缚床上</SR_BondageBed>
+    <SR_BondageChains>使用锁链将{1}捆绑</SR_BondageChains>
+    <SR_ElectocutionChair>对{1}实施电刑</SR_ElectocutionChair>
     <SR_ElectrocutionFailure>电力中断导致{0}电刑失败</SR_ElectrocutionFailure>
 </LanguageData>

@@ -3,11 +3,11 @@
 	<JobDef>
 		<defName>SR_BondageBed</defName>
 		<driverClass>SR.DA.Job.JobDriver_UseBondageBed</driverClass>
-		<reportString>捆绑</reportString>
+		<reportString>束缚</reportString>
 	</JobDef>
 	<JobDef>
 		<defName>SR_BondageChains</defName>
-		<driverClass>SR.DA.Job.JobDriver_UseBondageItem</driverClass>
+		<driverClass>SR.DA.Job.JobDriver_UseBondageChains</driverClass>
 		<reportString>捆绑</reportString>
 	</JobDef>
 	<JobDef>
@@ -17,8 +17,8 @@
 	</JobDef>
 	<JobDef>
 		<defName>SR_ReleaseChains</defName>
-		<driverClass>SR.DA.Job.JobDriver_ReleaseBondageItem</driverClass>
-		<reportString>解放</reportString>
+		<driverClass>SR.DA.Job.JobDriver_ReleaseBondageChains</driverClass>
+		<reportString>解绑</reportString>
 	</JobDef>
 	<JobDef>
 		<defName>SR_ElectrocutionChair</defName>
