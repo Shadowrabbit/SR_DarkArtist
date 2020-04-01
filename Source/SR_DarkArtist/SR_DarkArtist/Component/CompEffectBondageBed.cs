@@ -13,8 +13,6 @@ namespace SR.DA.Component
         public override void DoEffect(Pawn usedBy)
         {
             base.DoEffect(usedBy);
-            Building_BondageBed building_BondageBed = (Building_BondageBed)parent;
-            building_BondageBed.SetOccupant(usedBy);//设置使用者
             HediffDef hediffBed = Hediff.HediffDefOf.SR_BondageBed;
             var arms = usedBy.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Arm);
             if (arms!=null)

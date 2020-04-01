@@ -70,6 +70,7 @@ namespace SR.DA.Component
                         //存在可用的囚犯
                         if (prisoner != pawn && prisoner.Spawned && prisoner.IsPrisonerOfColony)
                         {
+                            hasPrisoner = true;
                             //囚犯被使用
                             if (!pawn.CanReserve(prisoner, 1, -1, null, false))
                             {
@@ -77,7 +78,6 @@ namespace SR.DA.Component
                             }
                             else
                             {
-                                hasPrisoner = true;
                                 Action action = delegate ()
                                 {
                                     TryStartUseJob(pawn, prisoner);

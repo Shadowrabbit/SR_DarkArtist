@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using RimWorld;
 using SR.DA.Component;
+using SR.DA.Thing;
 using Verse;
 using Verse.AI;
 
@@ -51,10 +52,12 @@ namespace SR.DA.Job
                     initAction = delegate ()
                     {
                         //床没坏
-                        if (!Thing.Destroyed )
+                        if (!Thing.Destroyed)
                         {
-                            this.pawn.carryTracker.TryDropCarriedThing(this.Thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
-                            prisoner.jobs.Notify_TuckedIntoBed((Building_Bed)Thing);//小人被扔到床上
+                            pawn.carryTracker.TryDropCarriedThing(Thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
+                            Building_BondageBed bb = (Building_BondageBed)Thing;
+                            bb.SetOccupant(prisoner);//设置拥有者 一定要在notify之前
+                            prisoner.jobs.Notify_TuckedIntoBed(bb);//小人被扔到床上
                         }
                         else
                         {

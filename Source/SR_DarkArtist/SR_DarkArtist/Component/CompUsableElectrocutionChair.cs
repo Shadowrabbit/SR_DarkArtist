@@ -61,13 +61,13 @@ namespace SR.DA.Component
                         {
                             if (prisoner != pawn && prisoner.Spawned && prisoner.IsPrisonerOfColony)
                             {
+                                hasPrisoner = true;
                                 if (!pawn.CanReserve(prisoner, 1, -1, null, false))
                                 {
                                     yield return new FloatMenuOption(this.FloatMenuOptionLabel(prisoner) + " (" + "Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
                                 }
                                 else
                                 {
-                                    hasPrisoner = true;
                                     Action action = delegate ()
                                     {
                                         TryStartUseJob(pawn, prisoner);
