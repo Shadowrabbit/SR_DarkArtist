@@ -106,7 +106,6 @@ namespace SR.DA.Thing
             this.occupant = occupant;
             OwnersForReading.Clear();
             OwnersForReading.Add(occupant);
-            occupant.jobs.Notify_TuckedIntoBed(this);
         }
         /// <summary>
         /// 移除使用者

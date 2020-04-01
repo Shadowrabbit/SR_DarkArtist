@@ -44,16 +44,25 @@ namespace SR.DA.Job
             if (!prisoner.Dead)
             {
                 yield return Toils_General.WaitWith(TargetIndex.A, 60, true, true); //交互1秒
+                //接下来的工作中包含了另一个job laydown，以及床，所以要释放床给laydown使用
+                yield return Toils_Reserve.Release(TargetIndex.A);
                 yield return new Toil
                 {
                     initAction = delegate ()
                     {
-                        this.pawn.carryTracker.TryDropCarriedThing(this.Thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
+                        //床没坏
+                        if (!Thing.Destroyed )
+                        {
+                            this.pawn.carryTracker.TryDropCarriedThing(this.Thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
+                            prisoner.jobs.Notify_TuckedIntoBed((Building_Bed)Thing);//小人被扔到床上
+                        }
+                        else
+                        {
+                            pawn.jobs.EndCurrentJob(JobCondition.Incompletable);//床毁了 不能扔床上
+                        }
                     },
                     defaultCompleteMode = ToilCompleteMode.Instant
                 };
-                yield return Toils_Reserve.Release(TargetIndex.A);//释放
-                yield return Toils_Reserve.Release(TargetIndex.B);
                 //家具的效果
                 yield return new Toil
                 {

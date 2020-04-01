@@ -51,13 +51,21 @@ namespace SR.DA.Component
                 {
                     if (prisoner != pawn && prisoner.Spawned && prisoner.IsPrisonerOfColony)
                     {
-                        hasPrisoner = true;
-                        Action action = delegate ()
+                        //囚犯被使用
+                        if (!pawn.CanReserve(prisoner, 1, -1, null, false))
                         {
-                            TryStartUseJob(pawn, prisoner);
-                        };
-                        string str = TranslatorFormattedStringExtensions.Translate("SR_BondageChains", pawn.Named(pawn.Name.ToString()), prisoner.Named(prisoner.Name.ToString()));
-                        yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                            yield return new FloatMenuOption(this.FloatMenuOptionLabel(prisoner) + " (" + "Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                        }
+                        else
+                        {
+                            hasPrisoner = true;
+                            Action action = delegate ()
+                            {
+                                TryStartUseJob(pawn, prisoner);
+                            };
+                            string str = TranslatorFormattedStringExtensions.Translate("SR_BondageChains", pawn.Named(pawn.Name.ToString()), prisoner.Named(prisoner.Name.ToString()));
+                            yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                        }
                     }
                 }
                 if (!hasPrisoner)

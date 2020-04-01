@@ -61,13 +61,20 @@ namespace SR.DA.Component
                         {
                             if (prisoner != pawn && prisoner.Spawned && prisoner.IsPrisonerOfColony)
                             {
-                                hasPrisoner = true;
-                                Action action = delegate ()
+                                if (!pawn.CanReserve(prisoner, 1, -1, null, false))
                                 {
-                                    TryStartUseJob(pawn, prisoner);
-                                };
-                                string str = TranslatorFormattedStringExtensions.Translate("SR_ElectocutionChair", pawn.Named(pawn.Name.ToString()), prisoner.Named(prisoner.Name.ToString()));
-                                yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(prisoner) + " (" + "Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                                }
+                                else
+                                {
+                                    hasPrisoner = true;
+                                    Action action = delegate ()
+                                    {
+                                        TryStartUseJob(pawn, prisoner);
+                                    };
+                                    string str = TranslatorFormattedStringExtensions.Translate("SR_ElectocutionChair", pawn.Named(pawn.Name.ToString()), prisoner.Named(prisoner.Name.ToString()));
+                                    yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                                }
                             }
                         }
                         //没有可用的囚犯
@@ -103,12 +110,6 @@ namespace SR.DA.Component
             if (!pawn.CanReserveAndReach(extraTarget, PathEndMode.Touch, Danger.Some, 1, -1, null, false))
             {
                 return;
-            }
-            //取消禁用
-            CompForbiddable comp = parent.GetComp<CompForbiddable>();
-            if (comp != null)
-            {
-                comp.Forbidden = false;
             }
             //分配job
             Verse.AI.Job job = extraTarget.IsValid ? JobMaker.MakeJob(this.Props.useJob, this.parent, extraTarget) : JobMaker.MakeJob(this.Props.useJob, this.parent);
