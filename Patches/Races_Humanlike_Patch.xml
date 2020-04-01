@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!-- 为人形添加撤销锁链的选项 -->
 <Patch>
   <Operation Class="PatchOperationAdd">
-    <xpath>*/ThingDef[defName="Human"]/comps</xpath>
+    <xpath>/Defs/ThingDef[defName="Human"]</xpath>
     <value>
       <comps>
         <li Class="CompProperties_Usable">

@@ -16,7 +16,7 @@ namespace SR.DA.Job
             }
         }
         /// <summary>
-        /// 保留犯人和束缚床
+        /// 保留犯人
         /// </summary>
         /// <param name="errorOnFailed"></param>
         /// <returns></returns>
@@ -30,9 +30,9 @@ namespace SR.DA.Job
         /// <returns></returns>
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            this.FailOnDestroyedOrNull(TargetIndex.A);
+            this.FailOnDestroyedOrNull(TargetIndex.A);//报空
             this.FailOnAggroMentalStateAndHostile(TargetIndex.A);//B精神不正常
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);//走到犯人旁边
             Pawn prisoner = (Pawn)Target;
             if (prisoner!=null && !prisoner.Dead)
             {

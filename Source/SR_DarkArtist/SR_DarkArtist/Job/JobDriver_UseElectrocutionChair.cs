@@ -44,23 +44,15 @@ namespace SR.DA.Job
             this.FailOnAggroMentalStateAndHostile(TargetIndex.B);//B精神不正常
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch);//走到囚犯身边
             yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, false, false);//搬运囚犯
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
-            yield return new Toil
-            {
-                initAction = delegate ()
-                {
-                    this.pawn.carryTracker.TryDropCarriedThing(this.Thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
-                },
-                defaultCompleteMode = ToilCompleteMode.Instant
-            };
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
             Pawn prisoner = (Pawn)Target;
             Building_ElectrocutionChair chair = (Building_ElectrocutionChair)Thing;
             if (!prisoner.Dead)
             {
-                Toil toilWaitWith = Toils_General.WaitWith(TargetIndex.B, 180, true, true); //交互3秒
+                Toil toilWaitWith = Toils_General.WaitWith(TargetIndex.A, 180, true, true); //交互3秒
                 var cpt = chair.GetComp<CompPowerTrader>() ?? throw new Exception("cant find comp:CompPowerTrader");
-                toilWaitWith.AddPreInitAction(()=> { chair.OnOrOff(true); });
-                toilWaitWith.AddFinishAction(()=> { chair.OnOrOff(false); });
+                toilWaitWith.AddPreInitAction(()=> { chair.OnOrOff(true); });//启动电椅 提高电力负载
+                toilWaitWith.AddFinishAction(()=> { chair.OnOrOff(false); });//恢复电力负载
                 toilWaitWith.tickAction = delegate () {
                     if (!cpt.PowerOn)
                     {
@@ -69,7 +61,15 @@ namespace SR.DA.Job
                         pawn.jobs.EndCurrentJob(JobCondition.Incompletable, true, true);
                     }
                 };
-                yield return toilWaitWith; //交互1秒
+                yield return toilWaitWith; //交互
+                yield return new Toil
+                {
+                    initAction = delegate ()
+                    {
+                        this.pawn.carryTracker.TryDropCarriedThing(this.Thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
+                    },
+                    defaultCompleteMode = ToilCompleteMode.Instant
+                };
             }
             yield return Toils_Reserve.Release(TargetIndex.A);//释放
             yield return Toils_Reserve.Release(TargetIndex.B);

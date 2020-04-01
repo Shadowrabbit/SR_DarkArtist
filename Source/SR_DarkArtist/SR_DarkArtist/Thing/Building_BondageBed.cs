@@ -85,8 +85,12 @@ namespace SR.DA.Thing
         /// <param name="mode"></param>
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
-            var crebb = GetComp<CompRemoveEffectBondageBed>() ?? throw new Exception("cant find comp : CompRemoveEffectBondageBed");
-            crebb.DoEffect(occupant);//解除使用者
+            //如果床上面有囚犯
+            if (occupant!=null)
+            {
+                var crebb = GetComp<CompRemoveEffectBondageBed>() ?? throw new Exception("cant find comp : CompRemoveEffectBondageBed");
+                crebb.DoEffect(occupant);//解除使用者
+            }
             Room room = this.GetRoom(RegionType.Set_Passable);
             base.DeSpawn(mode);
             if (room != null)

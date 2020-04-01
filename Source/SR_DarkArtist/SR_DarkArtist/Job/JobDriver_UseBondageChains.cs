@@ -47,11 +47,6 @@ namespace SR.DA.Job
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.Touch);//走到囚犯
-            yield return new Toil
-            {
-                initAction = () => { pawn.carryTracker.TryDropCarriedThing(this.Target.Position, ThingPlaceMode.Near, out Verse.Thing thing, null); },
-                defaultCompleteMode = ToilCompleteMode.Instant
-            };
             Pawn prisoner = (Pawn)Target;
             //捆绑操作
             if (!prisoner.Dead)

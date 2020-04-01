@@ -111,7 +111,7 @@ namespace SR.DA.Component
             enumerator = (from x in usedBy.health.hediffSet.hediffs where x.def == hediff select x).ToList().GetEnumerator();//获取小人身上所有hediffBed
             while (enumerator.MoveNext())
             {
-                Verse.Hediff h = enumerator.Current;//当前的hediffBed
+                Verse.Hediff h = enumerator.Current;//当前的hediff
                 usedBy.health.RemoveHediff(h);
             }
             var thing = ThingMaker.MakeThing(Thing.ThingDefOf.SR_Chains);

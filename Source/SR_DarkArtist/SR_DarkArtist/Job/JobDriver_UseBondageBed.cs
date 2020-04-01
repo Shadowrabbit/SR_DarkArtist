@@ -38,20 +38,20 @@ namespace SR.DA.Job
             this.FailOnAggroMentalStateAndHostile(TargetIndex.B);//B精神不正常
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.ClosestTouch);//走到囚犯身边
             yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, false, false);//搬运囚犯
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
-            yield return new Toil
-            {
-                initAction = delegate ()
-                {
-                    this.pawn.carryTracker.TryDropCarriedThing(this.Thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
-                },
-                defaultCompleteMode = ToilCompleteMode.Instant
-            };
+            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
             Pawn prisoner = (Pawn)Target;
             //捆绑操作
             if (!prisoner.Dead)
             {
                 yield return Toils_General.WaitWith(TargetIndex.A, 60, true, true); //交互1秒
+                yield return new Toil
+                {
+                    initAction = delegate ()
+                    {
+                        this.pawn.carryTracker.TryDropCarriedThing(this.Thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
+                    },
+                    defaultCompleteMode = ToilCompleteMode.Instant
+                };
                 yield return Toils_Reserve.Release(TargetIndex.A);//释放
                 yield return Toils_Reserve.Release(TargetIndex.B);
                 //家具的效果
