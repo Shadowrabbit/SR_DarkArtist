@@ -8,6 +8,9 @@ using SR.DA.Thing;
 
 namespace SR.DA.Component
 {
+    /// <summary>
+    /// 锁链撤销效果组件 这个组件在pawn上 通过comp之间通讯传值
+    /// </summary>
     public class CompUsableRemoveEffectChians :CompUsable{
         public bool IsBondaged {
             get { return isBondaged; }

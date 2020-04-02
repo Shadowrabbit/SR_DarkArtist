@@ -3,6 +3,9 @@ using Verse;
 
 namespace SR.DA.Component
 {
+    /// <summary>
+    /// 锁链触发效果组件
+    /// </summary>
     public class CompEffectBondageChains : CompUseEffect
     {
         [NoTranslate]

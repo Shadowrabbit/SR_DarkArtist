@@ -2,6 +2,9 @@
 
 namespace SR.DA.Component
 {
+    /// <summary>
+    /// 高电压组件参数
+    /// </summary>
     public class CompProperties_HighVoltage : CompProperties
     {
         public CompProperties_HighVoltage()

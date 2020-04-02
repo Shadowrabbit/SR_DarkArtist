@@ -57,8 +57,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\CompProperties_LayerExtension.cs" />
+    <Compile Include="Component\CompLayerExtension.cs" />
     <Compile Include="Component\CompUsableRemoveEffectChians.cs" />
-    <Compile Include="Component\CompUsableBondageChians.cs" />
+    <Compile Include="Component\CompUsableBondageChains.cs" />
     <Compile Include="Component\CompProperties_HighVoltage.cs" />
     <Compile Include="Component\CompHighVoltage.cs" />
     <Compile Include="Component\CompEffectElectricChair.cs" />

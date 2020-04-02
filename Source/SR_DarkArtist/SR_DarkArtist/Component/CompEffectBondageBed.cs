@@ -4,6 +4,9 @@ using SR.DA.Thing;
 
 namespace SR.DA.Component
 {
+    /// <summary>
+    /// 束缚床触发效果组件
+    /// </summary>
     public class CompEffectBondageBed: CompUseEffect
     {
         /// <summary>

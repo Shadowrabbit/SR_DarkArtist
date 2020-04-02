@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace SR.DA.Component
 {
+    /// <summary>
+    /// 束缚床撤销效果组件
+    /// </summary>
     public class CompRemoveEffectBondageBed : CompUseEffect
     {
         /// <summary>

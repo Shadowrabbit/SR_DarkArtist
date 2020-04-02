@@ -6,6 +6,9 @@ using Verse.AI;
 using SR.DA.Thing;
 namespace SR.DA.Component
 {
+    /// <summary>
+    /// 束缚床交互组件
+    /// </summary>
     public class CompUsableBondageBed : CompUsable
     {
         /// <summary>

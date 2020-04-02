@@ -3,6 +3,9 @@ using Verse;
 
 namespace SR.DA.Component
 {
+    /// <summary>
+    /// 电椅触发效果组件
+    /// </summary>
     public class CompEffectElectricChair : CompUseEffect
     {
         private static readonly float dmgAmount = 5f;

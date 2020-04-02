@@ -5,6 +5,9 @@ using Verse;
 
 namespace SR.DA.Component
 {
+    /// <summary>
+    /// 高电压命令扩展组件
+    /// </summary>
     public class CompHighVoltage : ThingComp
     {
         private CompProperties_HighVoltage Props

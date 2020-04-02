@@ -48,6 +48,21 @@
                 <drawAssignmentOverlay>false</drawAssignmentOverlay>
                 <compClass>CompAssignableToPawn</compClass>
             </li>
+            <!-- layer扩展 graphic与layer对应 -->
+          <li Class="SR.DA.Component.CompProperties_LayerExtension">
+            <compClass>SR.DA.Component.CompLayerExtension</compClass>
+            <gas>
+              <li>
+                <graphicData>
+                  <texPath>Things/Building/Furniture/Bed/BondageBedLayerA</texPath>
+                  <graphicClass>Graphic_Multi</graphicClass>
+                  <shaderType>CutoutComplex</shaderType>
+                  <drawSize>(4,4)</drawSize>
+                </graphicData>
+                <altitudeLayer>Pawn</altitudeLayer>
+              </li>
+            </gas>
+          </li>
         </comps>
         <statBases>
             <MaxHitPoints>140</MaxHitPoints>
@@ -71,7 +86,7 @@
         <!-- 额外固定消耗 -->
         <costList>
           <Cloth>20</Cloth>
-      </costList>
+        </costList>
         <building>
             <bed_showSleeperBody>true</bed_showSleeperBody>
             <bed_healPerDay>4</bed_healPerDay>

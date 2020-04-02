@@ -25,7 +25,7 @@
     <alwaysHaulable>true</alwaysHaulable>
     <comps>
       <li Class="CompProperties_Usable">
-        <compClass>SR.DA.Component.CompUsableBondageChians</compClass>
+        <compClass>SR.DA.Component.CompUsableBondageChains</compClass>
         <useJob>SR_BondageChains</useJob>
         <useLabel>使用锁链</useLabel>
       </li>

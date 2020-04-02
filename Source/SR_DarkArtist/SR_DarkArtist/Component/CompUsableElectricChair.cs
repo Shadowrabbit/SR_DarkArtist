@@ -5,6 +5,9 @@ using Verse;
 using Verse.AI;
 namespace SR.DA.Component
 {
+    /// <summary>
+    /// 电椅交互组件
+    /// </summary>
     public class CompUsableElectricChair : CompUsable
     {
         /// <summary>

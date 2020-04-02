@@ -7,7 +7,10 @@ using Verse.AI;
 
 namespace SR.DA.Component
 {
-    public class CompUsableBondageChians : CompUsable
+    /// <summary>
+    /// 锁链交互组件
+    /// </summary>
+    public class CompUsableBondageChains : CompUsable
     {
         /// <summary>
         /// 菜单选项label
