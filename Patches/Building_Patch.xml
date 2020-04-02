@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- mod中的素材偏小 需要更改原版物品绘制尺寸 -->
+<Patch>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThingDef[defName="Bed"]/graphicData/drawSize</xpath>
+    <value>
+        <drawSize>(4,4)</drawSize>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThingDef[defName="DoubleBed"]/graphicData/drawSize</xpath>
+    <value>
+        <drawSize>(4,4)</drawSize>
+    </value>
+  </Operation>
+</Patch>

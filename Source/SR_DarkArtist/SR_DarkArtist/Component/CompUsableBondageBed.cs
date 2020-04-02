@@ -24,73 +24,86 @@ namespace SR.DA.Component
         /// <returns></returns>
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn pawn)
         {
-            Building_BondageBed bbb = (Building_BondageBed)parent;
-            //有使用者
-            if (bbb.occupant!=null)
+            Building_BondageBed bbb = parent as Building_BondageBed;
+            if (bbb==null)
             {
-                Action action = delegate ()
-                {
-                    TryReleasePrisoner(pawn, bbb.occupant);
-                };
-                string str = TranslatorFormattedStringExtensions.Translate("SR_Release_BondageBed", bbb.occupant.Named(bbb.occupant.Name.ToString()));
-                yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                yield break;
             }
-            else
+            //地图不存在
+            if (pawn.Map == null || pawn.Map != Find.CurrentMap)
             {
-                //地图不存在
-                if (pawn.Map == null || pawn.Map != Find.CurrentMap)
+                yield break;
+            }
+            //床被使用中
+            if (!pawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
+            {
+                yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "NoPath".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+            }
+            //无法保留
+            else if (!pawn.CanReserve(this.parent, 1, -1, null, false))
+            {
+                yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+            }
+            //无法操作
+            else if (!pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
+            {
+                yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "Incapable".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+            }
+            //监管工作被禁用
+            else if (pawn.WorkTagIsDisabled(WorkTypeDefOf.Warden.workTags))
+            {
+                yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "SR_Forbid".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+            }
+            //存在使用者
+            else if (bbb.occupant != null)
+            {
+                //囚犯被使用中
+                if (!pawn.CanReserve(bbb.occupant, 1, -1, null, false))
                 {
-                    yield break;
+                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(bbb.occupant) + " (" + "SR_Reserved".Translate(bbb.occupant.Label) + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
                 }
-                //无法接触
-                if (!pawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
-                {
-                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "NoPath".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
-                }
-                //无法保留
-                else if (!pawn.CanReserve(this.parent, 1, -1, null, false))
-                {
-                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
-                }
-                //无法操作
-                else if (!pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
-                {
-                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "Incapable".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
-                }
-                //监管工作被禁用
-                else if (pawn.WorkTagIsDisabled(WorkTypeDefOf.Warden.workTags))
-                {
-                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "SR_CantWork".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
-                }
+                //解除束缚
                 else
                 {
-                    bool hasPrisoner = false;
-                    foreach (Pawn prisoner in pawn.Map.mapPawns.AllPawns)
+                    Action action = delegate ()
                     {
-                        //存在可用的囚犯
-                        if (prisoner != pawn && prisoner.Spawned && prisoner.IsPrisonerOfColony)
+                        TryReleasePrisoner(pawn, bbb.occupant);
+                    };
+                    string str = TranslatorFormattedStringExtensions.Translate("SR_Release_BondageBed", bbb.occupant.Label);
+                    yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                }
+            }
+            //不存在使用者
+            else
+            {
+                bool hasPrisoner = false;
+                foreach (Pawn prisoner in pawn.Map.mapPawns.AllPawns)
+                {
+                    //存在可用的囚犯
+                    if (prisoner != pawn && prisoner.Spawned && prisoner.IsPrisonerOfColony)
+                    {
+                        hasPrisoner = true;
+                        //囚犯被使用中
+                        if (!pawn.CanReserve(prisoner, 1, -1, null, false))
                         {
-                            hasPrisoner = true;
-                            //囚犯被使用
-                            if (!pawn.CanReserve(prisoner, 1, -1, null, false))
+                            yield return new FloatMenuOption(this.FloatMenuOptionLabel(prisoner) + " (" + "SR_Reserved".Translate(prisoner.Label) + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                        }
+                        //束缚囚犯
+                        else
+                        {
+                            Action action = delegate ()
                             {
-                                yield return new FloatMenuOption(this.FloatMenuOptionLabel(prisoner) + " (" + "Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
-                            }
-                            else
-                            {
-                                Action action = delegate ()
-                                {
-                                    TryStartUseJob(pawn, prisoner);
-                                };
-                                string str = TranslatorFormattedStringExtensions.Translate("SR_BondageBed", pawn.Named(pawn.Name.ToString()), prisoner.Named(prisoner.Name.ToString()));
-                                yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
-                            }
+                                TryStartUseJob(pawn, prisoner);
+                            };
+                            string str = TranslatorFormattedStringExtensions.Translate("SR_BondageBed", pawn.Named(pawn.Name.ToString()), prisoner.Named(prisoner.Name.ToString()));
+                            yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
                         }
                     }
-                    if (!hasPrisoner)
-                    {
-                        yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "SR_NoPrisoner".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
-                    }
+                }
+                //没有可用囚犯
+                if (!hasPrisoner)
+                {
+                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "SR_NoPrisoner".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
                 }
             }
         }

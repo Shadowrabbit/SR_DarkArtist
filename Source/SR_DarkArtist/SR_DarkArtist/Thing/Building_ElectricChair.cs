@@ -6,7 +6,7 @@ using Verse;
 
 namespace SR.DA.Thing
 {
-    public class Building_ElectrocutionChair : Building
+    public class Building_ElectricChair : Building
     {
         private bool isUsing = false;
         private static readonly float workingPower = 5000f;//工作耗电,使用是会给电力系统增加负荷
@@ -56,7 +56,8 @@ namespace SR.DA.Thing
             OnPowerChanged();
         }
         private void OnPowerChanged() {
-            cpt.PowerOutput = isUsing ? -workingPower : -cpt.Props.basePowerConsumption;//工作用电或基础用电
+            //耗电量开启电源的话取决于是否工作 关闭电源为0
+            cpt.PowerOutput = cpt.PowerOn ? isUsing ? -workingPower : -cpt.Props.basePowerConsumption : 0f;
         }
     }
 }

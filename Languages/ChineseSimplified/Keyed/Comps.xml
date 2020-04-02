@@ -10,11 +10,14 @@
     <SR_Release_BondageBed>解除{0}的束缚(束缚床)</SR_Release_BondageBed>
     <SR_Release_BondageChains>解除{0}的束缚(锁链)</SR_Release_BondageChains>
     <SR_CantUse>无法使用</SR_CantUse>
-    <SR_CantWork>监管工作禁用</SR_CantWork>
+    <SR_CantRemove>无法移除锁链</SR_CantRemove>
+    <SR_Forbid>监管工作禁用</SR_Forbid>
     <SR_NoPrisoner>没有囚犯</SR_NoPrisoner>
     <SR_NoPower>电力不足</SR_NoPower>
     <SR_BondageBed>将{1}绑到束缚床上</SR_BondageBed>
     <SR_BondageChains>使用锁链将{1}捆绑</SR_BondageChains>
+    <SR_HasChains>{0}已经被捆绑</SR_HasChains>
     <SR_ElectocutionChair>对{1}实施电刑</SR_ElectocutionChair>
     <SR_ElectrocutionFailure>电力中断导致{0}电刑失败</SR_ElectrocutionFailure>
+    <SR_Reserved>{0}已被预留给其他人</SR_Reserved>
 </LanguageData>

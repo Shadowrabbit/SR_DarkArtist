@@ -55,7 +55,7 @@ namespace SR.DA.Job
                         if (!Thing.Destroyed)
                         {
                             pawn.carryTracker.TryDropCarriedThing(Thing.Position, ThingPlaceMode.Direct, out Verse.Thing thing, null);//把囚犯扔下去
-                            Building_BondageBed bb = (Building_BondageBed)Thing;
+                            Building_BondageBed bb = (Building_BondageBed)Thing??throw new System.Exception("cant find Building_BondageBed");
                             bb.SetOccupant(prisoner);//设置拥有者 一定要在notify之前
                             prisoner.jobs.Notify_TuckedIntoBed(bb);//小人被扔到床上
                         }

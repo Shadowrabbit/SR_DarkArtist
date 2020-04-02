@@ -9,6 +9,9 @@ using SR.DA.Thing;
 namespace SR.DA.Component
 {
     public class CompUsableRemoveEffectChians :CompUsable{
+        public bool IsBondaged {
+            get { return isBondaged; }
+        }
         private bool isBondaged = false;//小人已经被捆绑了
         /// <summary>
         /// 菜单选项label
@@ -35,12 +38,17 @@ namespace SR.DA.Component
             {
                 yield break;
             }
+            Pawn prisoner = parent as Pawn ?? throw new Exception("prisoner is null");
+            if (prisoner==null)
+            {
+                yield break;
+            }
             //无法接触
             if (!myPawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
             {
                 yield return new FloatMenuOption(this.FloatMenuOptionLabel(myPawn) + " (" + "NoPath".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
             }
-            //无法保留
+            //囚犯被使用中
             else if (!myPawn.CanReserve(this.parent, 1, -1, null, false))
             {
                 yield return new FloatMenuOption(this.FloatMenuOptionLabel(myPawn) + " (" + "Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
@@ -53,10 +61,10 @@ namespace SR.DA.Component
             //监管工作被禁用
             else if (myPawn.WorkTagIsDisabled(WorkTypeDefOf.Warden.workTags))
             {
-                yield return new FloatMenuOption(this.FloatMenuOptionLabel(myPawn) + " (" + "SR_CantWork".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                yield return new FloatMenuOption(this.FloatMenuOptionLabel(myPawn) + " (" + "SR_Forbid".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
             }
-            else
-            {
+            //解除锁链
+            else {
                 Action action = delegate ()
                 {
                     TryStartUseJob(myPawn, parent);

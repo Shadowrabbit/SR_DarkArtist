@@ -13,10 +13,10 @@
         <passability>PassThroughOnly</passability>
         <defaultPlacingRot>South</defaultPlacingRot>
         <graphicData>
-        <texPath>Things/Building/Furniture/Bed/Bed</texPath>
+        <texPath>Things/Building/Furniture/Bed/BondageBed</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <shaderType>CutoutComplex</shaderType>
-            <drawSize>(2,2)</drawSize>
+            <drawSize>(4,4)</drawSize>
             <color>(62,164,249)</color>
             <damageData>
                 <rect>(0,0.05,1,1.95)</rect>
@@ -73,7 +73,7 @@
           <Cloth>20</Cloth>
       </costList>
         <building>
-            <bed_showSleeperBody>False</bed_showSleeperBody>
+            <bed_showSleeperBody>true</bed_showSleeperBody>
             <bed_healPerDay>4</bed_healPerDay>
         </building>
         <fillPercent>0.4</fillPercent>
@@ -88,14 +88,15 @@
         <uiIconScale>0.90</uiIconScale>
     </ThingDef>
     <ThingDef ParentName="FurnitureWithQualityBase">
-      <defName>SR_ElectrocutionChair</defName>
-      <thingClass>SR.DA.Thing.Building_ElectrocutionChair</thingClass>
+      <defName>SR_ElectricChair</defName>
+      <thingClass>SR.DA.Thing.Building_ElectricChair</thingClass>
       <label>电椅</label>
       <description>坐上去会非常舒适。</description>
       <graphicData>
-        <texPath>Things/Building/Furniture/DiningChair</texPath>
-        <graphicClass>Graphic_Multi</graphicClass>
-        <drawSize>(1,1)</drawSize>
+        <texPath>Things/Building/Furniture/ElectricChair</texPath>
+        <!-- 无法旋转 -->
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>(2,2)</drawSize>
         <damageData>
           <rectN>(0.25,0.234375,0.5,0.28125)</rectN>
           <rectS>(0.25,0.234375,0.5,0.28125)</rectS>
@@ -108,12 +109,12 @@
       </graphicData>
       <comps>
           <li Class="CompProperties_Usable">
-            <compClass>SR.DA.Component.CompUsableElectrocutionChair</compClass>
-            <useJob>SR_ElectrocutionChair</useJob>
+            <compClass>SR.DA.Component.CompUsableElectricChair</compClass>
+            <useJob>SR_ElectricChair</useJob>
             <useLabel>处刑</useLabel>
           </li>
           <li Class="CompProperties_UseEffect">
-            <compClass>SR.DA.Component.CompEffectElectrocutionChair</compClass>
+            <compClass>SR.DA.Component.CompEffectElectricChair</compClass>
           </li>
           <li Class="CompProperties_Power">
             <compClass>CompPowerTrader</compClass>
@@ -133,6 +134,7 @@
         <Beauty>8</Beauty>
         <Comfort>0.7</Comfort>
       </statBases>
+      <size>(2,2)</size>
       <socialPropernessMatters>true</socialPropernessMatters>
       <stuffCategories>
         <li>Metallic</li>
@@ -146,7 +148,7 @@
       <pathCost>30</pathCost>
       <designationHotKey>Misc7</designationHotKey>
       <fillPercent>0.35</fillPercent>
-      <defaultPlacingRot>South</defaultPlacingRot>
+      <!-- <defaultPlacingRot>South</defaultPlacingRot> -->
       <building>
         <isSittable>false</isSittable>
       </building>

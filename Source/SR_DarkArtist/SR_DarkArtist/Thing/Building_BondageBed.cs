@@ -13,23 +13,10 @@ namespace SR.DA.Thing
         public Pawn occupant;//使用者
         private static readonly Color SheetColorMedicalForPrisoner = new Color(0.654902f, 0.3764706f, 0.152941182f);
         public override Color DrawColorTwo => SheetColorMedicalForPrisoner;
-        public new bool AnyUnoccupiedSleepingSlot { get { return false; } }
-        public new bool AnyUnownedSleepingSlot { get { return false; } }
-        public new bool Medical { get { return false; } }
-        public new bool ForPrisoners { get { return false; } }
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_References.Look(ref occupant, "occupant");//保存当前使用者
-        }
-        /// <summary>
-        /// 获取睡眠位置
-        /// </summary>
-        /// <returns></returns>
-        private IntVec3 GetSleepingSlotPos()
-        {
-            CellRect cellRect = GenAdj.OccupiedRect(Position, Rotation, def.size);
-            return new IntVec3(cellRect.minX, Position.y, cellRect.minZ);
         }
         /// <summary>
         /// 绘制囚犯房间边缘
@@ -78,6 +65,8 @@ namespace SR.DA.Thing
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
+            Medical = false;//禁止医用
+            ForPrisoners = true;//囚犯专用
         }
         /// <summary>
         /// 拆卸
@@ -91,8 +80,8 @@ namespace SR.DA.Thing
                 var crebb = GetComp<CompRemoveEffectBondageBed>() ?? throw new Exception("cant find comp : CompRemoveEffectBondageBed");
                 crebb.DoEffect(occupant);//解除使用者
             }
-            Room room = this.GetRoom(RegionType.Set_Passable);
             base.DeSpawn(mode);
+            Room room = this.GetRoom(RegionType.Set_Passable);
             if (room != null)
             {
                 room.Notify_RoomShapeOrContainedBedsChanged();
@@ -103,9 +92,12 @@ namespace SR.DA.Thing
         /// </summary>
         /// <param name="occupant"></param>
         public void SetOccupant(Pawn occupant) {
-            this.occupant = occupant;
-            OwnersForReading.Clear();
-            OwnersForReading.Add(occupant);
+            if (occupant!=null)
+            {
+                this.occupant = occupant;
+                OwnersForReading.Clear();
+                OwnersForReading.Add(occupant);
+            }
         }
         /// <summary>
         /// 移除使用者

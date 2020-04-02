@@ -3,10 +3,19 @@ using Verse;
 
 namespace SR.DA.Component
 {
-    public class CompEffectElectrocutionChair : CompUseEffect
+    public class CompEffectElectricChair : CompUseEffect
     {
         private static readonly float dmgAmount = 5f;
         public float DmgAmount { get; set; }
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="props"></param>
+        public override void Initialize(CompProperties props)
+        {
+            base.Initialize(props);
+            DmgAmount = dmgAmount;
+        }
         /// <summary>
         /// 作用效果 电击
         /// </summary>
@@ -23,7 +32,7 @@ namespace SR.DA.Component
             //高压电模式
             if (signal.Equals("HighVoltageOn"))
             {
-                DmgAmount = dmgAmount * 10;
+                DmgAmount = dmgAmount * 20;
                 Messages.Message("SR_HighVoltageOn".Translate(), MessageTypeDefOf.NeutralEvent);
             }
             //普通模式

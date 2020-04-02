@@ -61,15 +61,15 @@
     <Compile Include="Component\CompUsableBondageChians.cs" />
     <Compile Include="Component\CompProperties_HighVoltage.cs" />
     <Compile Include="Component\CompHighVoltage.cs" />
-    <Compile Include="Component\CompEffectElectrocutionChair.cs" />
-    <Compile Include="Component\CompUsableElectrocutionChair.cs" />
+    <Compile Include="Component\CompEffectElectricChair.cs" />
+    <Compile Include="Component\CompUsableElectricChair.cs" />
     <Compile Include="Component\CompRemoveEffectBondageBed.cs" />
     <Compile Include="Component\CompEffectBondageChains.cs" />
     <Compile Include="Component\CompEffectBondageBed.cs" />
     <Compile Include="Component\CompUsableBondageBed.cs" />
     <Compile Include="Damage\DamageDefOf.cs" />
     <Compile Include="Hediff\HediffDefOf.cs" />
-    <Compile Include="Job\JobDriver_UseElectrocutionChair.cs" />
+    <Compile Include="Job\JobDriver_UseElectricChair.cs" />
     <Compile Include="Job\JobDefOf.cs" />
     <Compile Include="Job\JobDriver_ReleaseBondageChains.cs" />
     <Compile Include="Job\JobDriver_ReleaseBondageBed.cs" />
@@ -81,7 +81,8 @@
     <Compile Include="Patch\PatchMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Thing\Building_BondageBed.cs" />
-    <Compile Include="Thing\Building_ElectrocutionChair.cs" />
+    <Compile Include="Thing\Building_ElectricChair.cs" />
+    <Compile Include="Thing\ThingExtension.cs" />
     <Compile Include="Thing\ThingDefOf.cs" />
   </ItemGroup>
   <ItemGroup />

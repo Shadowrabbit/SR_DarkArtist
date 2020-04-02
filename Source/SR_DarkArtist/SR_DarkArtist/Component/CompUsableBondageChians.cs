@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using RimWorld;
+using SR.DA.Thing;
 using Verse;
 using Verse.AI;
 
@@ -34,7 +35,7 @@ namespace SR.DA.Component
             {
                 yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "NoPath".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
             }
-            //无法保留
+            //锁链被使用中
             else if (!pawn.CanReserve(this.parent, 1, -1, null, false))
             {
                 yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
@@ -55,7 +56,12 @@ namespace SR.DA.Component
                         //囚犯被使用
                         if (!pawn.CanReserve(prisoner, 1, -1, null, false))
                         {
-                            yield return new FloatMenuOption(this.FloatMenuOptionLabel(prisoner) + " (" + "Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                            yield return new FloatMenuOption(this.FloatMenuOptionLabel(prisoner) + " (" + "SR_Reserved".Translate(prisoner.Label) + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                        }
+                        //如果已经存在锁链
+                        else if (prisoner.HasChains())
+                        {
+                            yield return new FloatMenuOption(this.FloatMenuOptionLabel(prisoner) + " (" + "SR_HasChains".Translate(prisoner.Label) + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
                         }
                         else
                         {

@@ -21,8 +21,8 @@
 		<reportString>解绑</reportString>
 	</JobDef>
 	<JobDef>
-		<defName>SR_ElectrocutionChair</defName>
-		<driverClass>SR.DA.Job.JobDriver_UseElectrocutionChair</driverClass>
+		<defName>SR_ElectricChair</defName>
+		<driverClass>SR.DA.Job.JobDriver_UseElectricChair</driverClass>
 		<reportString>处刑</reportString>
 	</JobDef>
 </Defs>

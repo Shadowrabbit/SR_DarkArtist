@@ -38,11 +38,14 @@ class Patch_Pawn_CarryTracker
                     //如果已经被束缚
                     if (hasBondageBed)
                     {
-                        Building_BondageBed bbb = (Building_BondageBed)p.CurrentBed();//获取当前躺着的束缚床
-                        CompRemoveEffectBondageBed crebb = bbb.GetComp<CompRemoveEffectBondageBed>();
-                        if (crebb != null)
+                        Building_Bed bbb = (Building_BondageBed)p.CurrentBed();//获取当前躺着的束缚床
+                        if (bbb!=null)
                         {
-                            crebb.DoEffect(p);//解除束缚
+                            CompRemoveEffectBondageBed crebb = bbb.GetComp<CompRemoveEffectBondageBed>();
+                            if (crebb != null)
+                            {
+                                crebb.DoEffect(p);//解除束缚
+                            }
                         }
                     }
                 }
@@ -73,11 +76,14 @@ class Patch_Pawn_CarryTracker
                     //如果已经被束缚
                     if (hasBondageBed)
                     {
-                        Building_BondageBed bbb = (Building_BondageBed)p.CurrentBed();//获取当前躺着的束缚床
-                        CompRemoveEffectBondageBed crebb = bbb.GetComp<CompRemoveEffectBondageBed>();
-                        if (crebb != null)
+                        Building_Bed bbb = (Building_BondageBed)p.CurrentBed();//获取当前躺着的束缚床
+                        if (bbb != null)
                         {
-                            crebb.DoEffect(p);//解除束缚
+                            CompRemoveEffectBondageBed crebb = bbb.GetComp<CompRemoveEffectBondageBed>();
+                            if (crebb != null)
+                            {
+                                crebb.DoEffect(p);//解除束缚
+                            }
                         }
                     }
                 }

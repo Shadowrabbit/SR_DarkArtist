@@ -5,7 +5,7 @@ using Verse;
 using Verse.AI;
 namespace SR.DA.Component
 {
-    public class CompUsableElectrocutionChair : CompUsable
+    public class CompUsableElectricChair : CompUsable
     {
         /// <summary>
         /// 菜单选项label
@@ -46,13 +46,23 @@ namespace SR.DA.Component
             //监管工作被禁用
             else if (pawn.WorkTagIsDisabled(WorkTypeDefOf.Warden.workTags))
             {
-                yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "SR_CantWork".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "SR_Forbid".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
             }
             else
             {
                 //电力组件
                 CompPowerTrader cptu = parent.GetComp<CompPowerTrader>();
-                if (cptu!=null)
+                if (cptu==null)
+                {
+                    yield break;
+                }
+                CompFlickable cf = parent.GetComp<CompFlickable>();
+                if (cptu == null)
+                {
+                    yield break;
+                }
+                //开启电源
+                if (cf.SwitchIsOn)
                 {
                     if (cptu.PowerOn)
                     {
@@ -62,9 +72,10 @@ namespace SR.DA.Component
                             if (prisoner != pawn && prisoner.Spawned && prisoner.IsPrisonerOfColony)
                             {
                                 hasPrisoner = true;
+                                //囚犯被使用中
                                 if (!pawn.CanReserve(prisoner, 1, -1, null, false))
                                 {
-                                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(prisoner) + " (" + "Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(prisoner) + " (" + "SR_Reserved".Translate(prisoner.Label) + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
                                 }
                                 else
                                 {
@@ -72,7 +83,7 @@ namespace SR.DA.Component
                                     {
                                         TryStartUseJob(pawn, prisoner);
                                     };
-                                    string str = TranslatorFormattedStringExtensions.Translate("SR_ElectocutionChair", pawn.Named(pawn.Name.ToString()), prisoner.Named(prisoner.Name.ToString()));
+                                    string str = TranslatorFormattedStringExtensions.Translate("SR_ElectocutionChair", pawn.Label, prisoner.Label);
                                     yield return new FloatMenuOption(str, action, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
                                 }
                             }
@@ -84,13 +95,15 @@ namespace SR.DA.Component
                         }
                     }
                     //电力不足
-                    else{
+                    else
+                    {
                         yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "SR_NoPower".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
                     }
                 }
+                //电源关闭
                 else
                 {
-                    Log.Warning("cant find Comp:PowerTraderUsable");
+                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "SR_NoPower".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
                 }
             }
         }

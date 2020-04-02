@@ -8,7 +8,7 @@ using Verse.AI;
 
 namespace SR.DA.Job
 {
-    public class JobDriver_UseElectrocutionChair : JobDriver_UseItem
+    public class JobDriver_UseElectricChair : JobDriver_UseItem
     {
         protected Verse.Thing Thing
         {
@@ -46,7 +46,7 @@ namespace SR.DA.Job
             yield return Toils_Haul.StartCarryThing(TargetIndex.B, false, false, false);//搬运囚犯
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch).FailOnForbidden(TargetIndex.A);//走到dark家具旁边
             Pawn prisoner = (Pawn)Target;
-            Building_ElectrocutionChair chair = (Building_ElectrocutionChair)Thing;
+            Building_ElectricChair chair = (Building_ElectricChair)Thing;
             if (!prisoner.Dead)
             {
                 Toil toilWaitWith = Toils_General.WaitWith(TargetIndex.A, 180, true, true); //交互3秒
@@ -80,7 +80,7 @@ namespace SR.DA.Job
                 {
                     if (Thing != null)
                     {
-                        CompEffectElectrocutionChair compUseEffect = Thing.TryGetComp<CompEffectElectrocutionChair>();//触发电椅效果
+                        CompEffectElectricChair compUseEffect = Thing.TryGetComp<CompEffectElectricChair>();//触发电椅效果
                         if (compUseEffect != null)
                         {
                             compUseEffect.DoEffect(prisoner);
