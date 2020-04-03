@@ -26,7 +26,9 @@ namespace SR.DA.Component
         public override void DoEffect(Pawn usedBy)
         {
             base.DoEffect(usedBy);
-            var damageInfo = new DamageInfo(Damage.DamageDefOf.SR_DamageElectrocution, DmgAmount);
+            //如果是受虐狂体质则增加正面心情
+            usedBy.needs.mood.thoughts.memories.TryGainMemory(usedBy.story.traits.HasTrait(Trait.TraitDefOf.Masochist) ? Thought.ThoughtDefOf.SR_Thought_HappyElectricShock : Thought.ThoughtDefOf.SR_Thought_PainfulElectricShock);
+            var damageInfo = new DamageInfo(Damage.DamageDefOf.SR_Damage_ElecticShock, DmgAmount);
             usedBy.TakeDamage(damageInfo);
         }
         public override void ReceiveCompSignal(string signal)

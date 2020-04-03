@@ -9,7 +9,7 @@ namespace SR.DA.Component
     public class CompEffectBondageChains : CompUseEffect
     {
         [NoTranslate]
-        private static readonly string signal = "SR_IsBondaged";
+        private static readonly string signal = "SR_Bound";
         /// <summary>
         /// 作用效果 捆绑
         /// </summary>
@@ -17,7 +17,7 @@ namespace SR.DA.Component
         public override void DoEffect(Pawn usedBy)
         {
             base.DoEffect(usedBy);
-            HediffDef h = Hediff.HediffDefOf.SR_BondageChains;
+            HediffDef h = Hediff.HediffDefOf.SR_Hediff_BondageChains;
             var arms = usedBy.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Arm);
             bool isBondaged = false;//是否成功捆绑
             if (arms != null)

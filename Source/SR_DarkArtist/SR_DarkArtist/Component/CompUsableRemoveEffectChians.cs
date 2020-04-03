@@ -107,7 +107,7 @@ namespace SR.DA.Component
         public override void ReceiveCompSignal(string signal)
         {
             base.ReceiveCompSignal(signal);
-            if (signal.Equals("SR_IsBondaged"))
+            if (signal.Equals("SR_Bound"))
             {
                 isBondaged = true;
             }
@@ -117,7 +117,7 @@ namespace SR.DA.Component
         /// </summary>
         /// <param name="usedBy"></param>
         public new void UsedBy(Pawn usedBy) {
-            HediffDef hediff = Hediff.HediffDefOf.SR_BondageChains;
+            HediffDef hediff = Hediff.HediffDefOf.SR_Hediff_BondageChains;
             List<Verse.Hediff>.Enumerator enumerator;
             enumerator = (from x in usedBy.health.hediffSet.hediffs where x.def == hediff select x).ToList().GetEnumerator();//获取小人身上所有hediffBed
             while (enumerator.MoveNext())
@@ -125,7 +125,7 @@ namespace SR.DA.Component
                 Verse.Hediff h = enumerator.Current;//当前的hediff
                 usedBy.health.RemoveHediff(h);
             }
-            var thing = ThingMaker.MakeThing(Thing.ThingDefOf.SR_Chains);
+            var thing = ThingMaker.MakeThing(Thing.ThingDefOf.SR_Item_Chains);
             thing.stackCount = 1;
             GenPlace.TryPlaceThing(thing, usedBy.Position, usedBy.Map, ThingPlaceMode.Near);
             isBondaged = false;

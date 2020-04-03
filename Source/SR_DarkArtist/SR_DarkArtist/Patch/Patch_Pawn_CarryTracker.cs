@@ -29,7 +29,7 @@ class Patch_Pawn_CarryTracker
                     bool hasBondageBed = false;//没有被束缚床束缚
                     for (int i = 0; i < p.health.hediffSet.hediffs.Count; i++)
                     {
-                        if (p.health.hediffSet.hediffs[i].def == SR.DA.Hediff.HediffDefOf.SR_BondageBed)
+                        if (p.health.hediffSet.hediffs[i].def == SR.DA.Hediff.HediffDefOf.SR_Hediff_BondageBed)
                         {
                             hasBondageBed = true;
                             break;
@@ -67,7 +67,7 @@ class Patch_Pawn_CarryTracker
                     bool hasBondageBed = false;//没有被束缚床束缚
                     for (int i = 0; i < p.health.hediffSet.hediffs.Count; i++)
                     {
-                        if (p.health.hediffSet.hediffs[i].def == SR.DA.Hediff.HediffDefOf.SR_BondageBed)
+                        if (p.health.hediffSet.hediffs[i].def == SR.DA.Hediff.HediffDefOf.SR_Hediff_BondageBed)
                         {
                             hasBondageBed = true;
                             break;

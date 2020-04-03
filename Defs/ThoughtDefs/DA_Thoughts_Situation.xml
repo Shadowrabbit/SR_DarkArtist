@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThoughtDef>
+    <defName>SR_Thought_Bondage</defName>
+    <workerClass>SR.DA.Thought.ThoughtWorker_BondageBed</workerClass>
+    <stages>
+      <!-- 高级束缚床 -->
+      <li>
+        <label>bondage</label>
+        <description>I'm so ♂ horny.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <!-- 束缚床 -->
+      <li>
+        <label>bondage</label>
+        <description>don't ♂ touch me there.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

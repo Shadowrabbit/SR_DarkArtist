@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ThingDef ParentName="ResourceBase">
-    <defName>SR_Chains</defName>
+    <defName>SR_Item_Chains</defName>
     <label>锁链</label>
     <thingClass>ThingWithComps</thingClass>
     <description>用于捆绑play</description>
@@ -13,6 +13,7 @@
     <stackLimit>1</stackLimit>
     <useHitPoints>true</useHitPoints>
     <statBases>
+      <WorkToMake>3000</WorkToMake>
       <MarketValue>200</MarketValue>
       <MaxHitPoints>100</MaxHitPoints>
       <Mass>2.0</Mass>
@@ -26,12 +27,28 @@
     <comps>
       <li Class="CompProperties_Usable">
         <compClass>SR.DA.Component.CompUsableBondageChains</compClass>
-        <useJob>SR_BondageChains</useJob>
+        <useJob>SR_Job_BondageChains</useJob>
         <useLabel>使用锁链</useLabel>
       </li>
       <li Class="CompProperties_UseEffect">
         <compClass>SR.DA.Component.CompEffectBondageChains</compClass>
       </li>
     </comps>
+    <researchPrerequisites>
+        <li>SR_RP_Chains</li>
+    </researchPrerequisites>
+    <recipeMaker>
+      <researchPrerequisite>SR_RP_Chains</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+        <li>FueledSmithy</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <Steel>30</Steel>
+    </costList>
   </ThingDef>
 </Defs>

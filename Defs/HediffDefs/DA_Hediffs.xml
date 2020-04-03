@@ -9,7 +9,7 @@
 		<scenarioCanAdd>false</scenarioCanAdd>
 	</HediffDef>
 	<HediffDef ParentName="SR_DarkHediffsBase">
-		<defName>SR_BondageBed</defName>
+		<defName>SR_Hediff_BondageBed</defName>
 		<label>束缚(束缚床)</label>
 		<labelNoun>束缚(束缚床)</labelNoun>
 		<description>被捆绑play</description>
@@ -29,7 +29,7 @@
 		</stages>	
 	</HediffDef>
 	<HediffDef ParentName="SR_DarkHediffsBase">
-		<defName>SR_BondageChains</defName>
+		<defName>SR_Hediff_BondageChains</defName>
 		<label>束缚(锁链)</label>
 		<labelNoun>束缚(锁链)</labelNoun>
 		<description>被捆绑play</description>
@@ -49,7 +49,7 @@
 		</stages>	
 	</HediffDef>
 	<HediffDef ParentName="InjuryBase">
-		<defName>SR_ElectrocutionChair</defName>
+		<defName>SR_Hediff_ElectricChair</defName>
 		<label>麻痹(电椅)</label>
 		<labelNoun>麻痹(电椅)</labelNoun>
 		<description>麻痹(电椅)</description>

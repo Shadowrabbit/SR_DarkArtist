@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <DamageDef>
-    <defName>SR_DamageElectrocution</defName>
+    <defName>SR_Damage_ElecticShock</defName>
     <label>电击</label>
     <workerClass>DamageWorker_AddInjury</workerClass>
     <externalViolence>true</externalViolence>
     <deathMessage>{0} has been killed by electrocution.</deathMessage>
-    <hediff>SR_ElectrocutionChair</hediff>
+    <hediff>SR_Hediff_ElectricChair</hediff>
     <hediffSolid>Crack</hediffSolid>
     <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
     <impactSoundType>Electric</impactSoundType>

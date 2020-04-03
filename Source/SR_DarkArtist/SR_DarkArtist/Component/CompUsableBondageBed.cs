@@ -63,7 +63,7 @@ namespace SR.DA.Component
                 //囚犯被使用中
                 if (!pawn.CanReserve(bbb.occupant, 1, -1, null, false))
                 {
-                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(bbb.occupant) + " (" + "SR_Reserved".Translate(bbb.occupant.Label) + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+                    yield return new FloatMenuOption(this.FloatMenuOptionLabel(bbb.occupant) + " (" + "SR_Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
                 }
                 //解除束缚
                 else
@@ -115,9 +115,13 @@ namespace SR.DA.Component
         /// </summary>
         /// <param name="pawn">操作者</param>
         /// <param name="extraTarget">囚犯</param>
-        private void TryReleasePrisoner(Pawn pawn, LocalTargetInfo extraTarget) {
+        public virtual void TryReleasePrisoner(Pawn pawn, LocalTargetInfo extraTarget) {
             //无法保留 接触家具
-            if (!pawn.CanReserveAndReach(parent, PathEndMode.Touch, Danger.Some, 1, -1, null, false))
+            //if (!pawn.CanReserveAndReach(parent, PathEndMode.Touch, Danger.Some, 1, -1, null, false))
+            //{
+            //    return;
+            //}
+            if (!pawn.CanReach(parent, PathEndMode.Touch, Danger.Some))
             {
                 return;
             }
@@ -127,7 +131,7 @@ namespace SR.DA.Component
                 return;
             }
             //分配job
-            Verse.AI.Job job = extraTarget.IsValid ? JobMaker.MakeJob(Job.JobDefOf.SR_ReleaseBed, parent, extraTarget) : JobMaker.MakeJob(Job.JobDefOf.SR_ReleaseBed, this.parent);
+            Verse.AI.Job job = extraTarget.IsValid ? JobMaker.MakeJob(Job.JobDefOf.SR_Job_ReleaseBed, parent, extraTarget) : JobMaker.MakeJob(Job.JobDefOf.SR_Job_ReleaseBed, this.parent);
             job.count = 1;
             pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
         }

@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\CompUsableAdvancedBondageBed.cs" />
     <Compile Include="Component\CompProperties_LayerExtension.cs" />
     <Compile Include="Component\CompLayerExtension.cs" />
     <Compile Include="Component\CompUsableRemoveEffectChians.cs" />
@@ -84,8 +85,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Thing\Building_BondageBed.cs" />
     <Compile Include="Thing\Building_ElectricChair.cs" />
+    <Compile Include="Thing\Building_AdvancedBondageBed.cs" />
     <Compile Include="Thing\ThingExtension.cs" />
     <Compile Include="Thing\ThingDefOf.cs" />
+    <Compile Include="Thought\ThoughtWorker_BondageBed.cs" />
+    <Compile Include="Thought\ThoughtDefOf.cs" />
+    <Compile Include="Trait\TraitDefOf.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

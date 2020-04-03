@@ -15,7 +15,7 @@ class Patch_Pawn
             bool hasBondageBed = false;//没有被束缚床束缚
             for (int i = 0; i < __instance.health.hediffSet.hediffs.Count; i++)
             {
-                if (__instance.health.hediffSet.hediffs[i].def == SR.DA.Hediff.HediffDefOf.SR_BondageBed)
+                if (__instance.health.hediffSet.hediffs[i].def == SR.DA.Hediff.HediffDefOf.SR_Hediff_BondageBed)
                 {
                     hasBondageBed = true;
                     break;

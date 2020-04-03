@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
     <ThingDef ParentName="FurnitureWithQualityBase">
-        <defName>SR_BondageBed</defName>
+        <defName>SR_Building_BondageBed</defName>
         <thingClass>SR.DA.Thing.Building_BondageBed</thingClass>
         <label>束缚床</label>
         <description>测试</description>
@@ -23,7 +23,7 @@
             </damageData>
         </graphicData>
         <comps>
-            <li Class="CompProperties_Forbiddable" />
+            <!-- <li Class="CompProperties_Forbiddable" /> -->
             <!-- 设施影响 梳妆台 桌子之类  继承bed必须实现的接口，没有使用到-->
             <li Class="CompProperties_AffectedByFacilities">
                 <linkableFacilities>
@@ -32,7 +32,7 @@
             <!-- 交互 -->
             <li Class="CompProperties_Usable">
               <compClass>SR.DA.Component.CompUsableBondageBed</compClass>
-              <useJob>SR_BondageBed</useJob>
+              <useJob>SR_Job_BondageBed</useJob>
               <useLabel>捆绑</useLabel>
             </li>
             <!-- 触发效果 -->
@@ -98,18 +98,103 @@
         <designationHotKey>Misc2</designationHotKey>
         <techLevel>Medieval</techLevel>
         <researchPrerequisites>
-            <li>ComplexFurniture</li>
+            <li>SR_RP_BondageBed</li>
         </researchPrerequisites>
         <uiIconScale>0.90</uiIconScale>
     </ThingDef>
     <ThingDef ParentName="FurnitureWithQualityBase">
-      <defName>SR_ElectricChair</defName>
+        <defName>SR_Building_AdvancedBondageBed</defName>
+        <thingClass>SR.DA.Thing.Building_AdvancedBondageBed</thingClass>
+        <label>先进束缚床</label>
+        <description>测试</description>
+        <drawGUIOverlay>true</drawGUIOverlay>
+        <canOverlapZones>false</canOverlapZones>
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+        </placeWorkers>
+        <passability>PassThroughOnly</passability>
+        <defaultPlacingRot>South</defaultPlacingRot>
+        <graphicData>
+        <texPath>Things/Building/Furniture/Bed/AdvancedBondageBed</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(4,4)</drawSize>
+            <color>(62,164,249)</color>
+            <damageData>
+                <rect>(0,0.05,1,1.95)</rect>
+            </damageData>
+        </graphicData>
+        <comps>
+            <!-- <li Class="CompProperties_Forbiddable" /> -->
+            <!-- 设施影响 梳妆台 桌子之类  继承bed必须实现的接口，没有使用到-->
+            <li Class="CompProperties_AffectedByFacilities">
+                <linkableFacilities>
+                </linkableFacilities>
+            </li>
+            <!-- 交互 -->
+            <li Class="CompProperties_Usable">
+              <compClass>SR.DA.Component.CompUsableAdvancedBondageBed</compClass>
+              <useJob>SR_Job_BondageBed</useJob>
+              <useLabel>捆绑</useLabel>
+            </li>
+            <!-- 触发效果 -->
+            <li Class="CompProperties_UseEffect">
+                <compClass>SR.DA.Component.CompEffectBondageBed</compClass>
+            </li>
+            <!-- 移除效果 -->
+            <li Class="CompProperties_UseEffect">
+                <compClass>SR.DA.Component.CompRemoveEffectBondageBed</compClass>
+            </li>
+            <!-- 继承bed必须实现的接口，没有使用到 -->
+            <li Class="CompProperties_AssignableToPawn">
+                <drawAssignmentOverlay>false</drawAssignmentOverlay>
+                <compClass>CompAssignableToPawn</compClass>
+            </li>
+        </comps>
+        <statBases>
+            <MaxHitPoints>140</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <Beauty>1</Beauty>
+            <WorkToBuild>800</WorkToBuild>
+            <Mass>30</Mass>
+            <BedRestEffectiveness>1</BedRestEffectiveness>
+            <Comfort>0.75</Comfort>
+            <ImmunityGainSpeedFactor>1.07</ImmunityGainSpeedFactor>
+            <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+        </statBases>
+        <size>(1,2)</size>
+        <!-- 材料种类 会影响复制命令的纹理 -->
+        <stuffCategories>
+          <li>Metallic</li>
+        </stuffCategories>
+        <costStuffCount>50</costStuffCount>
+        <!-- 额外固定消耗 -->
+        <costList>
+          <ComponentIndustrial>1</ComponentIndustrial>
+          <Steel>50</Steel>
+        </costList>
+        <building>
+            <bed_showSleeperBody>false</bed_showSleeperBody>
+            <bed_healPerDay>4</bed_healPerDay>
+        </building>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>60</pathCost>
+        <staticSunShadowHeight>0.17</staticSunShadowHeight>
+        <castEdgeShadows>True</castEdgeShadows>
+        <designationHotKey>Misc2</designationHotKey>
+        <techLevel>Medieval</techLevel>
+        <researchPrerequisites>
+            <li>SR_RP_AdvancedBondageBed</li>
+        </researchPrerequisites>
+        <uiIconScale>0.90</uiIconScale>
+    </ThingDef>
+    <ThingDef ParentName="FurnitureWithQualityBase">
+      <defName>SR_Building_ElectricChair</defName>
       <thingClass>SR.DA.Thing.Building_ElectricChair</thingClass>
       <label>电椅</label>
       <description>坐上去会非常舒适。</description>
       <graphicData>
         <texPath>Things/Building/Furniture/ElectricChair</texPath>
-        <!-- 无法旋转 -->
         <graphicClass>Graphic_Single</graphicClass>
         <drawSize>(2,2)</drawSize>
         <damageData>
@@ -125,7 +210,7 @@
       <comps>
           <li Class="CompProperties_Usable">
             <compClass>SR.DA.Component.CompUsableElectricChair</compClass>
-            <useJob>SR_ElectricChair</useJob>
+            <useJob>SR_Job_ElectricChair</useJob>
             <useLabel>处刑</useLabel>
           </li>
           <li Class="CompProperties_UseEffect">
@@ -168,10 +253,8 @@
         <isSittable>false</isSittable>
       </building>
       <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
-      <!-- 复杂家具+电力解锁 -->
       <researchPrerequisites>
-        <li>ComplexFurniture</li>
-        <li>Electricity</li>
+        <li>SR_RP_ElectricChair</li>
       </researchPrerequisites>
     </ThingDef>
 </Defs>

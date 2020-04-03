@@ -31,7 +31,12 @@ namespace SR.DA.Thing
         /// <returns></returns>
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            yield break;
+            def.building.bed_humanlike = false;//高度分化，没办法调用祖父类，为了阻止绘制医疗/囚犯/拥有者命令，尝试让其不满足父类执行条件
+            foreach (Gizmo gizmo in base.GetGizmos())
+            {
+                yield return gizmo;
+            }
+            def.building.bed_humanlike = true;
         }
         /// <summary>
         /// label绘制
@@ -41,7 +46,7 @@ namespace SR.DA.Thing
             if (occupant != null)
             {
                 Color defaultThingLabelColor = Color.yellow;
-                GenMapUI.DrawThingLabel(this, "SR_Bondage".Translate(), defaultThingLabelColor);
+                GenMapUI.DrawThingLabel(this, "SR_Bound".Translate(), defaultThingLabelColor);
             }
         }
         /// <summary>

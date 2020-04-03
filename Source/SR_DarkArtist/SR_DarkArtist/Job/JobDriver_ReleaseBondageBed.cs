@@ -29,7 +29,8 @@ namespace SR.DA.Job
         /// <returns></returns>
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            return this.pawn.Reserve(Thing, job, 1, -1, null, errorOnFailed) && this.pawn.Reserve(Target, job, 1, -1, null, errorOnFailed);
+            //当殖民者睡在床上时，床会被laydown保留，其他工作无法再次保留床
+            return pawn.Reserve(Target, job, 1, -1, null, errorOnFailed);
         }
         /// <summary>
         /// 行为过程
@@ -47,7 +48,6 @@ namespace SR.DA.Job
             if (!prisoner.Dead)
             {
                 yield return Toils_General.WaitWith(TargetIndex.A, 60, true, true); //交互1秒
-                yield return Toils_Reserve.Release(TargetIndex.A);//释放
                 yield return Toils_Reserve.Release(TargetIndex.B);
                 //解除效果
                 yield return new Toil

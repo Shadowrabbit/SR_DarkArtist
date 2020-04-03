@@ -77,7 +77,7 @@ namespace SR.DA.Job
                             if (compUseEffect != null)
                             {
                                 compUseEffect.DoEffect(prisoner);
-                                MoteMaker.ThrowText(Target.PositionHeld.ToVector3(), Target.MapHeld, "SR_Bondage".Translate(), 4f);
+                                MoteMaker.ThrowText(Target.PositionHeld.ToVector3(), Target.MapHeld, "SR_Bound".Translate(), 4f);
                             }
                         }
                     },

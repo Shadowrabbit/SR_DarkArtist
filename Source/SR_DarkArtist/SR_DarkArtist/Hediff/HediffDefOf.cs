@@ -6,8 +6,8 @@ namespace SR.DA.Hediff
     [DefOf]
     public static class HediffDefOf
     {
-        public static HediffDef SR_BondageBed;
-        public static HediffDef SR_BondageChains;
-        public static HediffDef SR_ElectrocutionChair;
+        public static HediffDef SR_Hediff_BondageBed;
+        public static HediffDef SR_Hediff_BondageChains;
+        public static HediffDef SR_Hediff_ElectricChair;
     }
 }

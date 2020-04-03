@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+<!-- col1 -->
+  <ResearchProjectDef>
+    <defName>SR_RP_BondageBed</defName>
+    <label>bondageBed</label>
+    <description>111</description>
+    <baseCost>500</baseCost>
+    <techLevel>Neolithic</techLevel>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+    <tab>SR_RT_DarkArtist</tab>
+    <prerequisites>
+      <li>ComplexFurniture</li>
+    </prerequisites>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>RP_TestBed</defName>
+    <label>testBed</label>
+    <description>2222</description>
+    <baseCost>500</baseCost>
+    <techLevel>Neolithic</techLevel>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>0.70</researchViewY>
+    <tab>SR_RT_DarkArtist</tab>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>SR_RP_ElectricChair</defName>
+    <label>electric chair</label>
+    <description>444</description>
+    <baseCost>800</baseCost>
+    <techLevel>Industrial</techLevel>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>1.40</researchViewY>
+    <tab>SR_RT_DarkArtist</tab>
+    <prerequisites>
+      <li>Electricity</li>
+    </prerequisites>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>SR_RP_Chains</defName>
+    <label>chains</label>
+    <description>444</description>
+    <baseCost>500</baseCost>
+    <techLevel>Neolithic</techLevel>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>2.10</researchViewY>
+    <tab>SR_RT_DarkArtist</tab>
+    <prerequisites>
+      <li>Smithing</li>
+    </prerequisites>
+  </ResearchProjectDef>
+  <!-- col2 -->
+  <ResearchProjectDef>
+    <defName>SR_RP_AdvancedBondageBed</defName>
+    <label>advanced bondageBed</label>
+    <description>333</description>
+    <baseCost>1000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+    <prerequisites>
+      <li>SR_RP_BondageBed</li>
+    </prerequisites>
+    <tab>SR_RT_DarkArtist</tab>
+  </ResearchProjectDef>
+</Defs>

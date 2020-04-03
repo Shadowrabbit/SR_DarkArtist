@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-    <SR_Bondage>束缚</SR_Bondage>
+    <SR_Bound>束缚</SR_Bound>
     <SR_Release>解放</SR_Release>
     <SR_ElectricShock>电击</SR_ElectricShock>
     <SR_HighVoltageOn>已启动高电压模式</SR_HighVoltageOn>
@@ -20,4 +20,5 @@
     <SR_ElectocutionChair>对{1}实施电刑</SR_ElectocutionChair>
     <SR_ElectrocutionFailure>电力中断导致{0}电刑失败</SR_ElectrocutionFailure>
     <SR_Reserved>{0}已被预留给其他人</SR_Reserved>
+    <SR_NoTarget>没有目标</SR_NoTarget>
 </LanguageData>

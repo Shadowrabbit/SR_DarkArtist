@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 using SR.DA.Thing;
+using SR.DA.Thought;
 
 namespace SR.DA.Component
 {
@@ -16,7 +17,7 @@ namespace SR.DA.Component
         public override void DoEffect(Pawn usedBy)
         {
             base.DoEffect(usedBy);
-            HediffDef hediffBed = Hediff.HediffDefOf.SR_BondageBed;
+            HediffDef hediffBed = Hediff.HediffDefOf.SR_Hediff_BondageBed;
             var arms = usedBy.RaceProps.body.GetPartsWithDef(BodyPartDefOf.Arm);
             if (arms!=null)
             {
