@@ -7,7 +7,10 @@ using UnityEngine;
 
 namespace SR.DA.Job
 {
-    public class JobDriver_UseBondageChains : JobDriver_UseItem
+    /// <summary>
+    /// AEUS使用行为
+    /// </summary>
+    public class JobDriver_UseTokenOfAEUS : JobDriver_UseItem
     {
         protected Verse.Thing Thing
         {
@@ -39,11 +42,6 @@ namespace SR.DA.Job
         protected override IEnumerable<Toil> MakeNewToils()
         {
             Pawn prisoner = (Pawn)Target;
-            //小人身上已经存在锁链
-            if (prisoner.HasChains())
-            {
-                yield break;
-            }
             this.FailOnDestroyedOrNull(TargetIndex.A);
             this.FailOnDestroyedOrNull(TargetIndex.B);
             //this.FailOnDespawnedNullOrForbidden(TargetIndex.A);//如果物品没有forbidden组件千万不要用这个条件，会直接判断失败
@@ -55,13 +53,11 @@ namespace SR.DA.Job
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.Touch);//走到囚犯
-            //捆绑操作
             if (!prisoner.Dead)
             {
                 yield return Toils_General.WaitWith(TargetIndex.B, 60, true, true); //交互1秒
                 yield return Toils_Reserve.Release(TargetIndex.A);//释放
                 yield return Toils_Reserve.Release(TargetIndex.B);
-                //家具的效果
                 yield return new Toil
                 {
                     initAction = delegate ()
@@ -72,7 +68,6 @@ namespace SR.DA.Job
                             if (compUseEffect != null)
                             {
                                 compUseEffect.DoEffect(prisoner);
-                                MoteMaker.ThrowText(Target.PositionHeld.ToVector3(), Target.MapHeld, "SR_Bound".Translate(), 4f);
                             }
                         }
                     },

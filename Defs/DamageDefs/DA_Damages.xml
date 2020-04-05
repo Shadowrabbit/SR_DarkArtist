@@ -2,7 +2,7 @@
 <Defs>
   <DamageDef>
     <defName>SR_Damage_ElecticShock</defName>
-    <label>电击</label>
+    <label>electic shock</label>
     <workerClass>DamageWorker_AddInjury</workerClass>
     <externalViolence>true</externalViolence>
     <deathMessage>{0} has been killed by electrocution.</deathMessage>

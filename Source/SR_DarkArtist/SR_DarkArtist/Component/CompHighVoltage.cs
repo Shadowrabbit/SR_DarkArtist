@@ -78,7 +78,7 @@ namespace SR.DA.Component
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Values.Look<bool>(ref this.switchIsOn, "switchOn", true, false);
+            Scribe_Values.Look<bool>(ref this.switchIsOn, "switchIsOn", true, false);
         }
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {

@@ -7,7 +7,7 @@ namespace SR.DA.Thought
     public static class ThoughtDefOf
     {
         //public static ThoughtDef SR_Thought_Bondage;
-        public static ThoughtDef SR_Thought_HappyElectricShock;
-        public static ThoughtDef SR_Thought_PainfulElectricShock;
+        public static ThoughtDef SR_Thought_Maltreat;
+        public static ThoughtDef SR_Thought_Mistreated;
     }
 }

@@ -3,26 +3,43 @@
 	<JobDef>
 		<defName>SR_Job_BondageBed</defName>
 		<driverClass>SR.DA.Job.JobDriver_UseBondageBed</driverClass>
-		<reportString>束缚</reportString>
+		<!-- <reportString>束缚</reportString> -->
+		<reportString>bound</reportString>
 	</JobDef>
 	<JobDef>
 		<defName>SR_Job_BondageChains</defName>
 		<driverClass>SR.DA.Job.JobDriver_UseBondageChains</driverClass>
-		<reportString>捆绑</reportString>
+		<!-- <reportString>捆绑</reportString> -->
+		<reportString>bound</reportString>
 	</JobDef>
 	<JobDef>
 		<defName>SR_Job_ReleaseBed</defName>
 		<driverClass>SR.DA.Job.JobDriver_ReleaseBondageBed</driverClass>
-		<reportString>解放</reportString>
+		<!-- <reportString>解放</reportString> -->
+		<reportString>release</reportString>
 	</JobDef>
 	<JobDef>
 		<defName>SR_Job_ReleaseChains</defName>
 		<driverClass>SR.DA.Job.JobDriver_ReleaseBondageChains</driverClass>
-		<reportString>解绑</reportString>
+		<!-- <reportString>解绑</reportString> -->
+		<reportString>release</reportString>
 	</JobDef>
 	<JobDef>
 		<defName>SR_Job_ElectricChair</defName>
 		<driverClass>SR.DA.Job.JobDriver_UseElectricChair</driverClass>
-		<reportString>处刑</reportString>
+		<!-- <reportString>处刑</reportString> -->
+		<reportString>maltreat</reportString>
+	</JobDef>
+	<JobDef>
+		<defName>SR_Job_Torture</defName>
+		<driverClass>SR.DA.Job.JobDriver_UseTorture</driverClass>
+		<!-- <reportString>处刑</reportString> -->
+		<reportString>maltreat</reportString>
+	</JobDef>
+	<JobDef>
+		<defName>SR_Job_AEUS</defName>
+		<driverClass>SR.DA.Job.JobDriver_UseTokenOfAEUS</driverClass>
+		<!-- <reportString>使用</reportString> -->
+		<reportString>use</reportString>
 	</JobDef>
 </Defs>

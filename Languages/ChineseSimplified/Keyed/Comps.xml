@@ -21,4 +21,6 @@
     <SR_ElectrocutionFailure>电力中断导致{0}电刑失败</SR_ElectrocutionFailure>
     <SR_Reserved>{0}已被预留给其他人</SR_Reserved>
     <SR_NoTarget>没有目标</SR_NoTarget>
+    <SR_Torture>对{1}使用刑具</SR_Torture>
+    <SR_BrainWashing>{0}屈服了，决定做一名平家boy</SR_BrainWashing>
 </LanguageData>

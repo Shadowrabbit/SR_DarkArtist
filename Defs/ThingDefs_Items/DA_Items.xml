@@ -2,9 +2,9 @@
 <Defs>
   <ThingDef ParentName="ResourceBase">
     <defName>SR_Item_Chains</defName>
-    <label>锁链</label>
+    <label>chains</label>
     <thingClass>ThingWithComps</thingClass>
-    <description>用于捆绑play</description>
+    <description>It will reduce user's ability of manipulation and moving.</description>
     <graphicData>
       <texPath>Things/Item/Special/SubpersonaCoreTechprof</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -28,17 +28,17 @@
       <li Class="CompProperties_Usable">
         <compClass>SR.DA.Component.CompUsableBondageChains</compClass>
         <useJob>SR_Job_BondageChains</useJob>
-        <useLabel>使用锁链</useLabel>
+        <useLabel>use chains</useLabel>
       </li>
       <li Class="CompProperties_UseEffect">
         <compClass>SR.DA.Component.CompEffectBondageChains</compClass>
       </li>
     </comps>
     <researchPrerequisites>
-        <li>SR_RP_Chains</li>
+        <li>SR_RP_Torture</li>
     </researchPrerequisites>
     <recipeMaker>
-      <researchPrerequisite>SR_RP_Chains</researchPrerequisite>
+      <researchPrerequisite>SR_RP_Torture</researchPrerequisite>
       <skillRequirements>
         <Crafting>6</Crafting>
       </skillRequirements>
@@ -49,6 +49,149 @@
     </recipeMaker>
     <costList>
       <Steel>30</Steel>
+    </costList>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>SR_Item_TokenOfZEUS</defName>
+    <label>token of ZEUS</label>
+    <thingClass>ThingWithComps</thingClass>
+    <description>the treasure handed down by the great hero, Zeus, has become a powerful brainwashing tool in van's hands, making all the boys loyal.</description>
+    <graphicData>
+      <texPath>Things/Item/Special/SubpersonaCoreTechprof</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+      <MarketValue>200</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>2.0</Mass>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <alwaysHaulable>true</alwaysHaulable>
+    <techLevel>Ultra</techLevel>
+    <!-- 高频任务奖励 -->
+    <thingSetMakerTags><li>RewardStandardHighFreq</li></thingSetMakerTags>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>SR.DA.Component.CompUsableTorture</compClass>
+        <useJob>SR_Job_AEUS</useJob>
+        <useLabel>use token of AEUS</useLabel>
+      </li>
+      <li Class="CompProperties_UseEffect">
+        <compClass>SR.DA.Component.CompEffectTokenOfZEUS</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>SR_Item_DarkWhip</defName>
+    <label>dark whip</label>
+    <thingClass>ThingWithComps</thingClass>
+    <description>One of Van's instruments of torture, was once used by Bili to punish boys in the bright camp.</description>
+    <graphicData>
+      <texPath>Things/Item/Special/SubpersonaCoreTechprof</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+      <MarketValue>200</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>2.0</Mass>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <alwaysHaulable>true</alwaysHaulable>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>SR.DA.Component.CompUsableTorture</compClass>
+        <useJob>SR_Job_Torture</useJob>
+        <useLabel>use torture</useLabel>
+      </li>
+      <li Class="CompProperties_UseEffect">
+        <compClass>SR.DA.Component.CompEffectDarkWhip</compClass>
+      </li>
+    </comps>
+    <researchPrerequisites>
+        <li>SR_RP_Torture</li>
+    </researchPrerequisites>
+    <recipeMaker>
+      <researchPrerequisite>SR_RP_Torture</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>3</Crafting>
+      </skillRequirements>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+        <li>FueledSmithy</li>
+      </recipeUsers>
+    </recipeMaker>
+    <stuffCategories>
+      <li>Fabric</li>
+      <li>Leathery</li>
+    </stuffCategories>
+    <costStuffCount>30</costStuffCount>
+  </ThingDef>
+  <ThingDef ParentName="ResourceBase">
+    <defName>SR_Item_electromagneticBearHand</defName>
+    <label>electromagnetic bear hand</label>
+    <thingClass>ThingWithComps</thingClass>
+    <description>One of Van's instruments of torture. A fork type tool with a weak current passing through the fork tip.</description>
+    <graphicData>
+      <texPath>Things/Item/Special/SubpersonaCoreTechprof</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+      <MarketValue>200</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>2.0</Mass>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <alwaysHaulable>true</alwaysHaulable>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <compClass>SR.DA.Component.CompUsableTorture</compClass>
+        <useJob>SR_Job_Torture</useJob>
+        <useLabel>use torture</useLabel>
+      </li>
+      <li Class="CompProperties_UseEffect">
+        <compClass>SR.DA.Component.CompEffectElectromagneticBearHand</compClass>
+      </li>
+    </comps>
+    <researchPrerequisites>
+        <li>SR_RP_Torture</li>
+    </researchPrerequisites>
+    <recipeMaker>
+      <researchPrerequisite>SR_RP_Torture</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>3</Crafting>
+      </skillRequirements>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+        <li>FueledSmithy</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <Steel>30</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
     </costList>
   </ThingDef>
 </Defs>

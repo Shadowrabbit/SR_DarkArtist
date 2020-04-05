@@ -84,6 +84,7 @@ namespace SR.DA.Job
                         if (compUseEffect != null)
                         {
                             compUseEffect.DoEffect(prisoner);
+                            pawn.needs.mood.thoughts.memories.TryGainMemory(Thought.ThoughtDefOf.SR_Thought_Maltreat);
                             MoteMaker.ThrowText(Target.PositionHeld.ToVector3(), Target.MapHeld, "SR_ElectricShock".Translate(), 4f);
                         }
                     }

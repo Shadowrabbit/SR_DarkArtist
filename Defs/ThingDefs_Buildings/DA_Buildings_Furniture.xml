@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+    <!-- 束缚床 -->
     <ThingDef ParentName="FurnitureWithQualityBase">
         <defName>SR_Building_BondageBed</defName>
         <thingClass>SR.DA.Thing.Building_BondageBed</thingClass>
-        <label>束缚床</label>
-        <description>测试</description>
+        <label>bondageBed</label>
+        <description>none</description>
         <drawGUIOverlay>true</drawGUIOverlay>
         <canOverlapZones>false</canOverlapZones>
         <placeWorkers>
@@ -102,11 +103,12 @@
         </researchPrerequisites>
         <uiIconScale>0.90</uiIconScale>
     </ThingDef>
+    <!-- 高级束缚床 -->
     <ThingDef ParentName="FurnitureWithQualityBase">
         <defName>SR_Building_AdvancedBondageBed</defName>
         <thingClass>SR.DA.Thing.Building_AdvancedBondageBed</thingClass>
-        <label>先进束缚床</label>
-        <description>测试</description>
+        <label>advanced bondageBed</label>
+        <description>none</description>
         <drawGUIOverlay>true</drawGUIOverlay>
         <canOverlapZones>false</canOverlapZones>
         <placeWorkers>
@@ -188,11 +190,12 @@
         </researchPrerequisites>
         <uiIconScale>0.90</uiIconScale>
     </ThingDef>
+    <!-- 暗黑木马 -->
     <ThingDef ParentName="FurnitureWithQualityBase">
       <defName>SR_Building_ElectricChair</defName>
       <thingClass>SR.DA.Thing.Building_ElectricChair</thingClass>
-      <label>电椅</label>
-      <description>坐上去会非常舒适。</description>
+      <label>electric chair</label>
+      <description>none</description>
       <graphicData>
         <texPath>Things/Building/Furniture/ElectricChair</texPath>
         <graphicClass>Graphic_Single</graphicClass>
@@ -211,7 +214,7 @@
           <li Class="CompProperties_Usable">
             <compClass>SR.DA.Component.CompUsableElectricChair</compClass>
             <useJob>SR_Job_ElectricChair</useJob>
-            <useLabel>处刑</useLabel>
+            <useLabel>electric shock</useLabel>
           </li>
           <li Class="CompProperties_UseEffect">
             <compClass>SR.DA.Component.CompEffectElectricChair</compClass>

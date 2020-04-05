@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
   <ThoughtDef>
-    <defName>SR_Thought_HappyElectricShock</defName>
+    <defName>SR_Thought_Maltreat</defName>
     <stackLimit>10</stackLimit>
     <durationDays>3.0</durationDays>
     <stages>
       <li>
-        <label>electric shock</label>
-        <description>don't ♂ stop.</description>
+        <label>maltreat</label>
+        <description>don't stop.</description>
         <baseMoodEffect>5</baseMoodEffect>
       </li>
     </stages>
   </ThoughtDef>
   <ThoughtDef>
-    <defName>SR_Thought_PainfulElectricShock</defName>
+    <defName>SR_Thought_Mistreated</defName>
     <durationDays>3.0</durationDays>
     <stackLimit>10</stackLimit>
+    <nullifyingTraits>
+      <li>Masochist</li>
+    </nullifyingTraits>
     <stages>
       <li>
-        <label>electric shock</label>
-        <description>Ou that's ♂ hurt.</description>
+        <label>mistreated</label>
+        <description>Ou that's hurt.</description>
         <baseMoodEffect>-5</baseMoodEffect>
       </li>
     </stages>

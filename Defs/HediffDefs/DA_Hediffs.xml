@@ -10,9 +10,9 @@
 	</HediffDef>
 	<HediffDef ParentName="SR_DarkHediffsBase">
 		<defName>SR_Hediff_BondageBed</defName>
-		<label>束缚(束缚床)</label>
-		<labelNoun>束缚(束缚床)</labelNoun>
-		<description>被捆绑play</description>
+		<label>BondageBed</label>
+		<labelNoun>BondageBed</labelNoun>
+		<description>BondageBed</description>
 		<stages>
 			<li>
 				<capMods>
@@ -30,9 +30,9 @@
 	</HediffDef>
 	<HediffDef ParentName="SR_DarkHediffsBase">
 		<defName>SR_Hediff_BondageChains</defName>
-		<label>束缚(锁链)</label>
-		<labelNoun>束缚(锁链)</labelNoun>
-		<description>被捆绑play</description>
+		<label>Chains</label>
+		<labelNoun>Chains</labelNoun>
+		<description>Chains</description>
 		<stages>
 			<li>
 				<capMods>
@@ -50,9 +50,9 @@
 	</HediffDef>
 	<HediffDef ParentName="InjuryBase">
 		<defName>SR_Hediff_ElectricChair</defName>
-		<label>麻痹(电椅)</label>
-		<labelNoun>麻痹(电椅)</labelNoun>
-		<description>麻痹(电椅)</description>
+		<label>electic shock</label>
+		<labelNoun>electic shock</labelNoun>
+		<description>electic shock</description>
 		<comps>
 			<li Class="HediffCompProperties_TendDuration">
 				<labelTendedWell>bandaged</labelTendedWell>
@@ -61,10 +61,10 @@
 			</li>
 		</comps>
 		<injuryProps>
-		<painPerSeverity>0.015</painPerSeverity>
-		<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
-		<canMerge>true</canMerge>
-		<destroyedLabel>Destroyed</destroyedLabel>
+			<painPerSeverity>0.015</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+			<canMerge>true</canMerge>
+			<destroyedLabel>Destroyed</destroyedLabel>
 		</injuryProps>
   	</HediffDef>
 </Defs>

@@ -15,8 +15,8 @@
     </prerequisites>
   </ResearchProjectDef>
   <ResearchProjectDef>
-    <defName>RP_TestBed</defName>
-    <label>testBed</label>
+    <defName>SR_RP_TDN</defName>
+    <label>TDN</label>
     <description>2222</description>
     <baseCost>500</baseCost>
     <techLevel>Neolithic</techLevel>
@@ -38,8 +38,8 @@
     </prerequisites>
   </ResearchProjectDef>
   <ResearchProjectDef>
-    <defName>SR_RP_Chains</defName>
-    <label>chains</label>
+    <defName>SR_RP_Torture</defName>
+    <label>torture</label>
     <description>444</description>
     <baseCost>500</baseCost>
     <techLevel>Neolithic</techLevel>

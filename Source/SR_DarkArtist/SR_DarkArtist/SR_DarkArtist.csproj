@@ -57,6 +57,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\CompEffectTokenOfZEUS.cs" />
+    <Compile Include="Component\CompUsableTorture.cs" />
+    <Compile Include="Component\CompEffectElectromagneticBearHand.cs" />
+    <Compile Include="Component\CompEffectDarkWhip.cs" />
     <Compile Include="Component\CompUsableAdvancedBondageBed.cs" />
     <Compile Include="Component\CompProperties_LayerExtension.cs" />
     <Compile Include="Component\CompLayerExtension.cs" />
@@ -72,6 +76,8 @@
     <Compile Include="Component\CompUsableBondageBed.cs" />
     <Compile Include="Damage\DamageDefOf.cs" />
     <Compile Include="Hediff\HediffDefOf.cs" />
+    <Compile Include="Job\JobDriver_UseTokenOfAEUS.cs" />
+    <Compile Include="Job\JobDriver_UseTorture.cs" />
     <Compile Include="Job\JobDriver_UseElectricChair.cs" />
     <Compile Include="Job\JobDefOf.cs" />
     <Compile Include="Job\JobDriver_ReleaseBondageChains.cs" />
