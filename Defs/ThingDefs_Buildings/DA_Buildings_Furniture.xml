@@ -190,7 +190,7 @@
         </researchPrerequisites>
         <uiIconScale>0.90</uiIconScale>
     </ThingDef>
-    <!-- 暗黑木马 -->
+    <!-- 电椅 -->
     <ThingDef ParentName="FurnitureWithQualityBase">
       <defName>SR_Building_ElectricChair</defName>
       <thingClass>SR.DA.Thing.Building_ElectricChair</thingClass>
@@ -259,5 +259,211 @@
       <researchPrerequisites>
         <li>SR_RP_ElectricChair</li>
       </researchPrerequisites>
+    </ThingDef>
+    <!-- 破床垫 -->
+    <ThingDef ParentName="BedWithQualityBase">
+      <defName>SR_Building_Mattress</defName>
+      <label>poor mattress</label>
+      <description>It's better than nothing.</description>
+      <graphicData>
+        <texPath>Things/Building/Furniture/Bed/Bedroll</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>CutoutComplex</shaderType>
+        <drawSize>(1,2)</drawSize>
+      </graphicData>
+      <castEdgeShadows>True</castEdgeShadows>
+      <statBases>
+        <Beauty>-5</Beauty>
+        <MaxHitPoints>50</MaxHitPoints>
+        <Flammability>1.0</Flammability>
+        <Mass>2.5</Mass>
+        <BedRestEffectiveness>0.60</BedRestEffectiveness>
+        <ImmunityGainSpeedFactor>1.00</ImmunityGainSpeedFactor>
+        <Comfort>0.4</Comfort>
+        <WorkToBuild>100</WorkToBuild>
+      </statBases>
+      <comps>
+        <li Class="CompProperties_AffectedByFacilities">
+          <linkableFacilities>
+            <li>Dresser</li>
+            <li>EndTable</li>
+          </linkableFacilities>
+        </li>
+      </comps>
+      <size>(1,2)</size>
+      <stuffCategories>
+        <li>Fabric</li>
+        <li>Leathery</li>
+      </stuffCategories>
+      <costStuffCount>10</costStuffCount>
+      <building>
+        <bed_showSleeperBody>true</bed_showSleeperBody>
+        <bed_healPerDay>2</bed_healPerDay>
+        <bed_caravansCanUse>true</bed_caravansCanUse>
+      </building>
+      <pathCost>5</pathCost>
+      <passability>Standable</passability>
+      <designationHotKey>Misc2</designationHotKey>
+    </ThingDef>
+    <!-- 简易床 -->
+    <ThingDef ParentName="BedWithQualityBase">
+      <defName>SR_SimpleBed</defName>
+      <label>simple bed</label>
+      <description>A makeshift bed, slightly uncomfortable but can save resources.</description>
+      <graphicData>
+        <texPath>Things/Building/Furniture/Bed/Bed</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>CutoutComplex</shaderType>
+        <drawSize>(2,2)</drawSize>
+        <damageData>
+          <rect>(0,0.05,1,1.95)</rect>
+        </damageData>
+      </graphicData>
+      <comps>
+        <li Class="CompProperties_AffectedByFacilities">
+          <linkableFacilities>
+            <li>EndTable</li>
+            <li>Dresser</li>
+          </linkableFacilities>
+        </li>
+      </comps>
+      <statBases>
+        <MaxHitPoints>110</MaxHitPoints>
+        <Flammability>1.0</Flammability>
+        <Beauty>-1</Beauty>
+        <WorkToBuild>560</WorkToBuild>
+        <Mass>25</Mass>
+        <BedRestEffectiveness>0.85</BedRestEffectiveness>
+        <Comfort>0.6</Comfort>
+        <ImmunityGainSpeedFactor>1.07</ImmunityGainSpeedFactor>
+        <SurgerySuccessChanceFactor>0.7</SurgerySuccessChanceFactor>
+      </statBases>
+      <size>(1,2)</size>
+      <stuffCategories>
+        <li>Metallic</li>
+        <li>Woody</li>
+        <li>Stony</li>
+      </stuffCategories>
+      <costStuffCount>30</costStuffCount>
+      <building>
+        <bed_showSleeperBody>true</bed_showSleeperBody>
+        <bed_healPerDay>4</bed_healPerDay>
+      </building>
+      <fillPercent>0.4</fillPercent>
+      <pathCost>60</pathCost>
+      <staticSunShadowHeight>0.17</staticSunShadowHeight>
+      <castEdgeShadows>True</castEdgeShadows>
+      <designationHotKey>Misc2</designationHotKey>
+      <techLevel>Medieval</techLevel>
+      <uiIconScale>0.90</uiIconScale>
+    </ThingDef>
+    <!-- 精致的床 -->
+    <ThingDef ParentName="BedWithQualityBase">
+      <defName>SR_NiceBed</defName>
+      <label>nice bed</label>
+      <description>A cozy mattress and sheets on a frame for resting.</description>
+      <graphicData>
+        <texPath>Things/Building/Furniture/Bed/Bed</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>CutoutComplex</shaderType>
+        <drawSize>(2,2)</drawSize>
+        <damageData>
+          <rect>(0,0.05,1,1.95)</rect>
+        </damageData>
+      </graphicData>
+      <comps>
+        <li Class="CompProperties_AffectedByFacilities">
+          <linkableFacilities>
+            <li>EndTable</li>
+            <li>Dresser</li>
+          </linkableFacilities>
+        </li>
+      </comps>
+      <statBases>
+        <MaxHitPoints>160</MaxHitPoints>
+        <Flammability>1.0</Flammability>
+        <Beauty>30</Beauty>
+        <WorkToBuild>1400</WorkToBuild>
+        <Mass>30</Mass>
+        <BedRestEffectiveness>1.1</BedRestEffectiveness>
+        <Comfort>0.9</Comfort>
+        <ImmunityGainSpeedFactor>1.07</ImmunityGainSpeedFactor>
+        <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+      </statBases>
+      <size>(1,2)</size>
+      <stuffCategories>
+        <li>Metallic</li>
+      </stuffCategories>
+      <costStuffCount>80</costStuffCount>
+      <building>
+        <bed_showSleeperBody>False</bed_showSleeperBody>
+        <bed_healPerDay>4</bed_healPerDay>
+      </building>
+      <fillPercent>0.4</fillPercent>
+      <pathCost>60</pathCost>
+      <staticSunShadowHeight>0.17</staticSunShadowHeight>
+      <castEdgeShadows>True</castEdgeShadows>
+      <designationHotKey>Misc2</designationHotKey>
+      <techLevel>Medieval</techLevel>
+      <researchPrerequisites>
+        <li>ComplexFurniture</li>
+      </researchPrerequisites>
+      <uiIconScale>0.90</uiIconScale>
+    </ThingDef>
+    <!-- 精致的双人床 -->
+    <ThingDef ParentName="ArtableBedBase">
+      <defName>SR_DoubleNiceBed</defName>
+      <label>double nice bed</label>
+      <description>A simple double-wide bed that fits two people.</description>
+      <graphicData>
+        <texPath>Things/Building/Furniture/Bed/DoubleBed</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>CutoutComplex</shaderType>
+        <drawSize>(2.05,2.05)</drawSize>
+        <damageData>
+          <rect>(0,0.05,2,1.95)</rect>
+        </damageData>
+      </graphicData>
+      <comps>
+        <li Class="CompProperties_AffectedByFacilities">
+          <linkableFacilities>
+            <li>EndTable</li>
+            <li>Dresser</li>
+          </linkableFacilities>
+        </li>
+      </comps>
+      <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+      <statBases>
+        <MaxHitPoints>240</MaxHitPoints>
+        <Flammability>1.0</Flammability>
+        <WorkToBuild>2500</WorkToBuild>
+        <Mass>50</Mass>
+        <Comfort>0.9</Comfort>
+        <Beauty>50</Beauty>
+        <BedRestEffectiveness>1.1</BedRestEffectiveness>
+        <ImmunityGainSpeedFactor>1.07</ImmunityGainSpeedFactor>
+        <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+      </statBases>
+      <size>(2,2)</size>
+      <stuffCategories>
+        <li>Metallic</li>
+      </stuffCategories>
+      <costStuffCount>170</costStuffCount>
+      <building>
+        <bed_showSleeperBody>False</bed_showSleeperBody>
+        <bed_healPerDay>4</bed_healPerDay>
+      </building>
+      <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+      <fillPercent>0.4</fillPercent>
+      <pathCost>60</pathCost>
+      <leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+      <staticSunShadowHeight>0.17</staticSunShadowHeight>
+      <castEdgeShadows>True</castEdgeShadows>
+      <designationHotKey>Misc3</designationHotKey>
+      <techLevel>Medieval</techLevel>
+      <researchPrerequisites>
+        <li>ComplexFurniture</li>
+      </researchPrerequisites>
+      <uiIconScale>0.90</uiIconScale>
     </ThingDef>
 </Defs>

@@ -31,7 +31,7 @@
   <ThingDef ParentName="SR_MeleeWeaponUltratech">
     <defName>SR_MeleeWeapon_ShuihuHuangmenSword</defName>
     <label>Shuihu Huangmen sword</label>
-    <description>The sacred sword, enshrined by every dark male witch in the dark shrine, has severe pain enough to make people faint. It is the imperial sword handed down from ancient times. It was called the dark river city in ancient times.</description>
+    <description>The sacred sword, enshrined by every dark male witch in the dark shrine, has severe pain enough to make people faint. It is the imperial sword handed down from ancient times. It was called 暗黑江城 in ancient times.</description>
     <soundInteract>Interact_MonoSword</soundInteract>
     <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
     <graphicData>
@@ -59,18 +59,18 @@
       <li>
         <label>point</label>
         <capacities>
-          <li>Stab</li>
+          <li>SR_RC_Stab</li>
         </capacities>
-        <power>27</power>
+        <power>15</power>
         <cooldownTime>2</cooldownTime>
         <armorPenetration>0.9</armorPenetration>
       </li>
       <li>
         <label>edge</label>
         <capacities>
-          <li>Cut</li>
+          <li>SR_RC_Cut</li>
         </capacities>
-        <power>27</power>
+        <power>15</power>
         <cooldownTime>2</cooldownTime>
         <armorPenetration>0.9</armorPenetration>
       </li>

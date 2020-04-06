@@ -15,23 +15,13 @@
     </prerequisites>
   </ResearchProjectDef>
   <ResearchProjectDef>
-    <defName>SR_RP_TDN</defName>
-    <label>TDN</label>
-    <description>2222</description>
-    <baseCost>500</baseCost>
-    <techLevel>Neolithic</techLevel>
-    <researchViewX>0.00</researchViewX>
-    <researchViewY>0.70</researchViewY>
-    <tab>SR_RT_DarkArtist</tab>
-  </ResearchProjectDef>
-  <ResearchProjectDef>
     <defName>SR_RP_ElectricChair</defName>
     <label>electric chair</label>
     <description>444</description>
     <baseCost>800</baseCost>
     <techLevel>Industrial</techLevel>
     <researchViewX>0.00</researchViewX>
-    <researchViewY>1.40</researchViewY>
+    <researchViewY>0.70</researchViewY>
     <tab>SR_RT_DarkArtist</tab>
     <prerequisites>
       <li>Electricity</li>
@@ -44,7 +34,7 @@
     <baseCost>500</baseCost>
     <techLevel>Neolithic</techLevel>
     <researchViewX>0.00</researchViewX>
-    <researchViewY>2.10</researchViewY>
+    <researchViewY>1.40</researchViewY>
     <tab>SR_RT_DarkArtist</tab>
     <prerequisites>
       <li>Smithing</li>

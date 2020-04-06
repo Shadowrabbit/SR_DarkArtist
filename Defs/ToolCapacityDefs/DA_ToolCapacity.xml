@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!-- 作为枢纽链接ManeuverDef,在ManeuverDef参数名为requiredCapacity -->
+  <ToolCapacityDef>
+    <defName>SR_RC_Cut</defName>
+    <label>cut</label>
+  </ToolCapacityDef>
+  <ToolCapacityDef>
+    <defName>SR_RC_Stab</defName>
+    <label>Stab</label>
+  </ToolCapacityDef>
+</Defs>

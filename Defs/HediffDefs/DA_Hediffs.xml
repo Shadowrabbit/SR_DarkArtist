@@ -67,4 +67,46 @@
 			<destroyedLabel>Destroyed</destroyedLabel>
 		</injuryProps>
   	</HediffDef>
+	<HediffDef ParentName="InjuryBase">
+		<defName>SR_Hediff_Cut</defName>
+		<label>cut</label>
+		<labelNoun>a cut</labelNoun>
+		<description>A cut.</description>
+		<comps>
+		<li Class="HediffCompProperties_TendDuration">
+			<labelTendedWell>bandaged</labelTendedWell>
+			<labelTendedWellInner>sutured</labelTendedWellInner>
+			<labelSolidTendedWell>set</labelSolidTendedWell>
+		</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.5</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+			<bleedRate>0.06</bleedRate>
+			<canMerge>false</canMerge>
+			<destroyedLabel>Cut off</destroyedLabel>
+			<destroyedOutLabel>Cut out</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
+	<HediffDef ParentName="InjuryBase">
+		<defName>SR_Hediff_Stab</defName>
+		<label>stab</label>
+		<labelNoun>a stab wound</labelNoun>
+		<description>A stab wound.</description>
+		<comps>
+		<li Class="HediffCompProperties_TendDuration">
+			<labelTendedWell>bandaged</labelTendedWell>
+			<labelTendedWellInner>sutured</labelTendedWellInner>
+			<labelSolidTendedWell>set</labelSolidTendedWell>
+		</li>
+		</comps>
+		<injuryProps>
+			<painPerSeverity>0.5</painPerSeverity>
+			<averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+			<bleedRate>0.06</bleedRate>
+			<canMerge>false</canMerge>
+			<destroyedLabel>Cut off</destroyedLabel>
+			<destroyedOutLabel>Cut out</destroyedOutLabel>
+		</injuryProps>
+	</HediffDef>
 </Defs>
