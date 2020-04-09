@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <SR_Job_BondageBed.reportString>束缚。</SR_Job_BondageBed.reportString>
+  <SR_Job_BondageChains.reportString>捆绑。</SR_Job_BondageChains.reportString>
+  <SR_Job_ReleaseBed.reportString>解放。</SR_Job_ReleaseBed.reportString>
+  <SR_Job_ReleaseChains.reportString>解绑。</SR_Job_ReleaseChains.reportString>
+  <SR_Job_ElectricChair.reportString>处刑。</SR_Job_ElectricChair.reportString>
+  <SR_Job_Torture.reportString>处刑。</SR_Job_Torture.reportString>
+  <SR_Job_AEUS.reportString>使用。</SR_Job_AEUS.reportString>
+</LanguageData>

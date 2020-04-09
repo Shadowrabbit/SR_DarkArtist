@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <SR_Building_BondageBed.label>束缚床</SR_Building_BondageBed.label>
+  <SR_Building_BondageBed.description>把囚犯绑在上面防止他们捣乱，简单节约。</SR_Building_BondageBed.description>
+  <SR_Building_AdvancedBondageBed.label>高级束缚床</SR_Building_AdvancedBondageBed.label>
+  <SR_Building_AdvancedBondageBed.description>当你的殖民者需要一些“强硬手段”渡过难关时，这张床能帮助你。请放心，它和普通床一样舒适。</SR_Building_AdvancedBondageBed.description>
+  <SR_Building_ElectricChair.label>电椅</SR_Building_ElectricChair.label>
+  <SR_Building_ElectricChair.description>对受虐狂而言，坐上去会非常舒适。高档可以致死。运行时需要大量电力，请保证电网中有足够电力使其运行。</SR_Building_ElectricChair.description>
+  <SR_Building_Mattress.label>破床垫</SR_Building_Mattress.label>
+  <SR_Building_Mattress.description>总比什么都没有要好。</SR_Building_Mattress.description>
+  <SR_SimpleBed.label>简易床</SR_SimpleBed.label>
+  <SR_SimpleBed.description>一个简单的床，不太舒服但可以节省资源。</SR_SimpleBed.description>
+  <SR_NiceBed.label>精致的床</SR_NiceBed.label>
+  <SR_NiceBed.description>一个漂亮的床。</SR_NiceBed.description>
+  <SR_DoubleNiceBed.label>精致的双人床</SR_DoubleNiceBed.label>
+  <SR_DoubleNiceBed.description>一个漂亮的双人床。</SR_DoubleNiceBed.description>
+</LanguageData>

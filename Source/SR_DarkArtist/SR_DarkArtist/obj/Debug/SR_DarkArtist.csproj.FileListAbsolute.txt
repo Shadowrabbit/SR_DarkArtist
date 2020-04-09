@@ -3,4 +3,3 @@ D:\SteamLibrary\steamapps\common\RimWorld\Mods\SR_DarkArtist\Assemblies\SR_DarkA
 D:\SteamLibrary\steamapps\common\RimWorld\Mods\SR_DarkArtist\Source\SR_DarkArtist\SR_DarkArtist\obj\Debug\SR_DarkArtist.csproj.CoreCompileInputs.cache
 D:\SteamLibrary\steamapps\common\RimWorld\Mods\SR_DarkArtist\Source\SR_DarkArtist\SR_DarkArtist\obj\Debug\SR_DarkArtist.dll
 D:\SteamLibrary\steamapps\common\RimWorld\Mods\SR_DarkArtist\Source\SR_DarkArtist\SR_DarkArtist\obj\Debug\SR_DarkArtist.pdb
-D:\SteamLibrary\steamapps\common\RimWorld\Mods\SR_DarkArtist\Source\SR_DarkArtist\SR_DarkArtist\obj\Debug\SR_DarkArtist.csprojAssemblyReference.cache

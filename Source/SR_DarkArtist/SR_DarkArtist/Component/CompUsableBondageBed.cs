@@ -37,16 +37,16 @@ namespace SR.DA.Component
             {
                 yield break;
             }
-            //床被使用中
+            //无法接触床
             if (!pawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
             {
                 yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "NoPath".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
             }
             //无法保留
-            else if (!pawn.CanReserve(this.parent, 1, -1, null, false))
-            {
-                yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
-            }
+            //else if (!pawn.CanReserve(this.parent, 1, -1, null, false))
+            //{
+            //    yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "Reserved".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
+            //}
             //无法操作
             else if (!pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
             {
@@ -116,7 +116,7 @@ namespace SR.DA.Component
         /// <param name="pawn">操作者</param>
         /// <param name="extraTarget">囚犯</param>
         public virtual void TryReleasePrisoner(Pawn pawn, LocalTargetInfo extraTarget) {
-            //无法保留 接触家具
+            //无法保留 接触家具 如果是殖民者躺在上面，殖民者会在上面睡觉并占用床导致无法release
             //if (!pawn.CanReserveAndReach(parent, PathEndMode.Touch, Danger.Some, 1, -1, null, false))
             //{
             //    return;

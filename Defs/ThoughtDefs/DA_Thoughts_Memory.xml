@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+  <!-- 虐待者快感 -->
   <ThoughtDef>
     <defName>SR_Thought_Maltreat</defName>
     <stackLimit>10</stackLimit>
@@ -12,6 +13,7 @@
       </li>
     </stages>
   </ThoughtDef>
+  <!-- 被虐待 -->
   <ThoughtDef>
     <defName>SR_Thought_Mistreated</defName>
     <durationDays>3.0</durationDays>

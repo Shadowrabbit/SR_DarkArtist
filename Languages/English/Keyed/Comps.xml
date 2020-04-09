@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <!-- <SR_Bound>束缚</SR_Bound> -->
+    <SR_Bound>bound</SR_Bound>
+    <!-- <SR_Release>解放</SR_Release> -->
+    <SR_Release>release</SR_Release>
+    <!-- <SR_ElectricShock>电击</SR_ElectricShock> -->
+    <SR_ElectricShock>electric shock</SR_ElectricShock>
+    <!-- <SR_HighVoltageOn>已启动高电压模式</SR_HighVoltageOn> -->
+    <SR_HighVoltageOn>high voltage mode has been turn on</SR_HighVoltageOn>
+    <!-- <SR_HighVoltageOff>已关闭高电压模式</SR_HighVoltageOff> -->
+    <SR_HighVoltageOff>high voltage mode has been turn off</SR_HighVoltageOff>
+    <!-- <SR_CommandDesignateHighVoltageLabel>提高电压</SR_CommandDesignateHighVoltageLabel> -->
+    <SR_CommandDesignateHighVoltageLabel>high voltage mode</SR_CommandDesignateHighVoltageLabel>
+    <!-- <SR_CommandDesignateHighVoltageDesc>不开玩笑，这个电压容易发生人命事故</SR_CommandDesignateHighVoltageDesc> -->
+    <SR_CommandDesignateHighVoltageDesc>no kidding. It may cause people die</SR_CommandDesignateHighVoltageDesc>
+    <!-- <SR_Release_BondageBed>解除{0}的束缚(束缚床)</SR_Release_BondageBed> -->
+    <SR_Release_BondageBed>release {0}(bondage bed)</SR_Release_BondageBed>
+    <!-- <SR_Release_BondageChains>解除{0}的束缚(锁链)</SR_Release_BondageChains> -->
+    <SR_Release_BondageChains>release {0}(chains)</SR_Release_BondageChains>
+    <!-- <SR_CantUse>无法使用</SR_CantUse> -->
+    <SR_CantUse>can't use</SR_CantUse>
+    <!-- <SR_CantRemove>无法移除锁链</SR_CantRemove> -->
+    <SR_CantRemove>cant't remove chains</SR_CantRemove>
+    <!-- <SR_Forbid>监管工作禁用</SR_Forbid> -->
+    <SR_Forbid>the type of work,basic,has been forbidden</SR_Forbid>
+    <!-- <SR_NoPrisoner>没有囚犯</SR_NoPrisoner> -->
+    <SR_NoPrisoner>can't find prisoners</SR_NoPrisoner>
+    <!-- <SR_NoPower>电力不足</SR_NoPower> -->
+    <SR_NoPower>power off</SR_NoPower>
+    <!-- <SR_BondageBed>将{1}绑到束缚床上</SR_BondageBed> -->
+    <SR_BondageBed>use bondage bed on {1}</SR_BondageBed>
+    <!-- <SR_BondageChains>使用锁链将{1}捆绑</SR_BondageChains> -->
+    <SR_BondageChains>use chain on {1}</SR_BondageChains>
+    <!-- <SR_HasChains>{0}已经被捆绑</SR_HasChains> -->
+    <SR_HasChains>{0}has been bound</SR_HasChains>
+    <!-- <SR_ElectocutionChair>对{1}实施电刑</SR_ElectocutionChair> -->
+    <SR_ElectocutionChair>use electric chair on {1}</SR_ElectocutionChair>
+    <!-- <SR_ElectrocutionFailure>电力中断导致{0}电刑失败</SR_ElectrocutionFailure> -->
+    <SR_ElectrocutionFailure>due to power off, cant't use electric chair on {0}</SR_ElectrocutionFailure>
+    <!-- <SR_Reserved>{0}已被预留给其他人</SR_Reserved> -->
+    <SR_Reserved>{0}has been Reserved by someone else</SR_Reserved>
+    <!-- <SR_NoTarget>没有目标</SR_NoTarget> -->
+    <SR_NoTarget>there is no target</SR_NoTarget>
+    <!-- <SR_Torture>对{1}使用刑具</SR_Torture> -->
+    <SR_Torture>use torture on {1}</SR_Torture>
+    <!-- <SR_BrainWashing>{0}屈服了，决定做一名平家boy</SR_BrainWashing> -->
+    <SR_BrainWashing>{0}decide to join</SR_BrainWashing>
+</LanguageData>

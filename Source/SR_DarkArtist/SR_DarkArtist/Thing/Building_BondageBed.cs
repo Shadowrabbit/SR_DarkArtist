@@ -86,11 +86,11 @@ namespace SR.DA.Thing
                 crebb.DoEffect(occupant);//解除使用者
             }
             base.DeSpawn(mode);
-            Room room = this.GetRoom(RegionType.Set_Passable);
-            if (room != null)
-            {
-                room.Notify_RoomShapeOrContainedBedsChanged();
-            }
+            //Room room = this.GetRoom(RegionType.Set_Passable);
+            //if (room != null)
+            //{
+            //    room.Notify_RoomShapeOrContainedBedsChanged();
+            //}
         }
         /// <summary>
         /// 设置使用者

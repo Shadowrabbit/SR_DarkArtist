@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <SR_Hediff_BondageBed.label>束缚床</SR_Hediff_BondageBed.label>
+  <SR_Hediff_BondageBed.description>束缚床</SR_Hediff_BondageBed.description>
+  <SR_Hediff_BondageBed.labelNoun>束缚床</SR_Hediff_BondageBed.labelNoun>
+  <SR_Hediff_BondageChains.label>锁链</SR_Hediff_BondageChains.label>
+  <SR_Hediff_BondageChains.description>锁链</SR_Hediff_BondageChains.description>
+  <SR_Hediff_BondageChains.labelNoun>锁链</SR_Hediff_BondageChains.labelNoun>
+  <SR_Hediff_ElectricChair.label>电击</SR_Hediff_ElectricChair.label>
+  <SR_Hediff_ElectricChair.description>电击</SR_Hediff_ElectricChair.description>
+  <SR_Hediff_ElectricChair.labelNoun>电击</SR_Hediff_ElectricChair.labelNoun>
+</LanguageData>

@@ -84,6 +84,7 @@
     <Compile Include="Job\JobDriver_ReleaseBondageBed.cs" />
     <Compile Include="Job\JobDriver_UseBondageChains.cs" />
     <Compile Include="Job\JobDriver_UseBondageBed.cs" />
+    <Compile Include="Patch\Patch_Building_Bed.cs" />
     <Compile Include="Patch\Patch_Pawn.cs" />
     <Compile Include="Patch\Patch_Pawn_CarryTracker.cs" />
     <Compile Include="Patch\Patch_RestUtility.cs" />

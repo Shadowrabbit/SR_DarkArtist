@@ -3,8 +3,8 @@
 <!-- col1 -->
   <ResearchProjectDef>
     <defName>SR_RP_BondageBed</defName>
-    <label>bondageBed</label>
-    <description>111</description>
+    <label>bondage bed</label>
+    <description>Unlock building,bondage bed,can make your prisoners calm down.</description>
     <baseCost>500</baseCost>
     <techLevel>Neolithic</techLevel>
     <researchViewX>0.00</researchViewX>
@@ -17,7 +17,7 @@
   <ResearchProjectDef>
     <defName>SR_RP_ElectricChair</defName>
     <label>electric chair</label>
-    <description>444</description>
+    <description>Unlock building, electric chair. It's used for punishing those cunning prisoners.</description>
     <baseCost>800</baseCost>
     <techLevel>Industrial</techLevel>
     <researchViewX>0.00</researchViewX>
@@ -30,7 +30,7 @@
   <ResearchProjectDef>
     <defName>SR_RP_Torture</defName>
     <label>torture</label>
-    <description>444</description>
+    <description>Unlock items,electromagnetic bear hand and dark whip.Prisoners' pain is your happiness.</description>
     <baseCost>500</baseCost>
     <techLevel>Neolithic</techLevel>
     <researchViewX>0.00</researchViewX>
@@ -43,8 +43,8 @@
   <!-- col2 -->
   <ResearchProjectDef>
     <defName>SR_RP_AdvancedBondageBed</defName>
-    <label>advanced bondageBed</label>
-    <description>333</description>
+    <label>advanced bondage bed</label>
+    <description>Unlock building,advanced bondage bed.It is very comfortable for withdrawal.</description>
     <baseCost>1000</baseCost>
     <techLevel>Industrial</techLevel>
     <researchViewX>1.00</researchViewX>

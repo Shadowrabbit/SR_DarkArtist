@@ -10,9 +10,9 @@
 	</HediffDef>
 	<HediffDef ParentName="SR_DarkHediffsBase">
 		<defName>SR_Hediff_BondageBed</defName>
-		<label>BondageBed</label>
-		<labelNoun>BondageBed</labelNoun>
-		<description>BondageBed</description>
+		<label>bondage bed</label>
+		<labelNoun>bondage bed</labelNoun>
+		<description>bondage bed</description>
 		<stages>
 			<li>
 				<capMods>

@@ -5,7 +5,7 @@
         <defName>SR_Building_BondageBed</defName>
         <thingClass>SR.DA.Thing.Building_BondageBed</thingClass>
         <label>bondageBed</label>
-        <description>none</description>
+        <description>Bound prisoners on it to make sure that they can't make trouble for you.</description>
         <drawGUIOverlay>true</drawGUIOverlay>
         <canOverlapZones>false</canOverlapZones>
         <placeWorkers>
@@ -34,7 +34,7 @@
             <li Class="CompProperties_Usable">
               <compClass>SR.DA.Component.CompUsableBondageBed</compClass>
               <useJob>SR_Job_BondageBed</useJob>
-              <useLabel>捆绑</useLabel>
+              <useLabel>bound</useLabel>
             </li>
             <!-- 触发效果 -->
             <li Class="CompProperties_UseEffect">
@@ -108,7 +108,7 @@
         <defName>SR_Building_AdvancedBondageBed</defName>
         <thingClass>SR.DA.Thing.Building_AdvancedBondageBed</thingClass>
         <label>advanced bondageBed</label>
-        <description>none</description>
+        <description>If your colonists need some hard way to weather the storm,this can help you. Please don't worry, it is very comfortable like a common bed.</description>
         <drawGUIOverlay>true</drawGUIOverlay>
         <canOverlapZones>false</canOverlapZones>
         <placeWorkers>
@@ -137,7 +137,7 @@
             <li Class="CompProperties_Usable">
               <compClass>SR.DA.Component.CompUsableAdvancedBondageBed</compClass>
               <useJob>SR_Job_BondageBed</useJob>
-              <useLabel>捆绑</useLabel>
+              <useLabel>bound</useLabel>
             </li>
             <!-- 触发效果 -->
             <li Class="CompProperties_UseEffect">
@@ -195,7 +195,8 @@
       <defName>SR_Building_ElectricChair</defName>
       <thingClass>SR.DA.Thing.Building_ElectricChair</thingClass>
       <label>electric chair</label>
-      <description>none</description>
+      <description>It is comfortable for Masochists. High voltage mode also can make prisoners die.
+      \nIt need much power in running.Make sure you have enough power to run it.</description>
       <graphicData>
         <texPath>Things/Building/Furniture/ElectricChair</texPath>
         <graphicClass>Graphic_Single</graphicClass>
@@ -361,7 +362,7 @@
     <ThingDef ParentName="BedWithQualityBase">
       <defName>SR_NiceBed</defName>
       <label>nice bed</label>
-      <description>A cozy mattress and sheets on a frame for resting.</description>
+      <description>A beautiful bed.</description>
       <graphicData>
         <texPath>Things/Building/Furniture/Bed/Bed</texPath>
         <graphicClass>Graphic_Multi</graphicClass>
@@ -414,7 +415,7 @@
     <ThingDef ParentName="ArtableBedBase">
       <defName>SR_DoubleNiceBed</defName>
       <label>double nice bed</label>
-      <description>A simple double-wide bed that fits two people.</description>
+      <description>A beautiful bed that fits two people.</description>
       <graphicData>
         <texPath>Things/Building/Furniture/Bed/DoubleBed</texPath>
         <graphicClass>Graphic_Multi</graphicClass>

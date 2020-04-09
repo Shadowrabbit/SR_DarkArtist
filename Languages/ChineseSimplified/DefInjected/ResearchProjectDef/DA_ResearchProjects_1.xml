@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <SR_RP_BondageBed.label>束缚床</SR_RP_BondageBed.label>
+  <SR_RP_BondageBed.description>解锁建造「束缚床」。让你的囚犯变得顺从。</SR_RP_BondageBed.description>
+  <SR_RP_ElectricChair.label>电椅</SR_RP_ElectricChair.label>
+  <SR_RP_ElectricChair.description>解锁建造「电椅」。惩罚那些不听话的犯人。</SR_RP_ElectricChair.description>
+  <SR_RP_Torture.label>刑具</SR_RP_Torture.label>
+  <SR_RP_Torture.description>解锁制造「暗黑鞭」、「电磁熊手」。虐待囚犯来获取快乐。</SR_RP_Torture.description>
+  <SR_RP_AdvancedBondageBed.label>高级束缚床</SR_RP_AdvancedBondageBed.label>
+  <SR_RP_AdvancedBondageBed.description>解锁建造「高级束缚床」。用于限制殖民者行动来脱离某种困境。</SR_RP_AdvancedBondageBed.description>
+</LanguageData>

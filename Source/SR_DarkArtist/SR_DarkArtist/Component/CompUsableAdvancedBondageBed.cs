@@ -28,7 +28,7 @@ namespace SR.DA.Component
             {
                 yield break;
             }
-            //无法接触
+            //无法接触床
             if (!pawn.CanReach(this.parent, PathEndMode.Touch, Danger.Deadly, false, TraverseMode.ByPawn))
             {
                 yield return new FloatMenuOption(this.FloatMenuOptionLabel(pawn) + " (" + "NoPath".Translate() + ")", null, MenuOptionPriority.DisabledOption, null, null, 0f, null, null);
@@ -74,7 +74,7 @@ namespace SR.DA.Component
                 foreach (Pawn target in pawn.Map.mapPawns.AllPawns)
                 {
                     //存在可用的囚犯或殖民者
-                    if (target != pawn && target.Spawned && target.IsColonist)
+                    if (target != pawn && target.Spawned && target.IsColonist && !target.IsPrisoner)
                     {
                         hasTarget = true;
                         //目标被使用中
