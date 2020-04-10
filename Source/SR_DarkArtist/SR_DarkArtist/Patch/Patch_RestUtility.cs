@@ -26,7 +26,7 @@ namespace SR.DA.Patch
             static bool Prefix(ref bool __result, Verse.Thing bedThing, Pawn sleeper, Pawn traveler, bool sleeperWillBePrisoner, bool checkSocialProperness, bool allowMedBedEvenIfSetToNoCare = false, bool ignoreOtherReservations = false)
             {
                 //如果目标床是束缚床则本次查找失败
-                if (bedThing.def.defName.Equals("SR_BondageBed"))
+                if (bedThing is Building_BondageBed)
                 {
                     __result = false;
                     return false;
