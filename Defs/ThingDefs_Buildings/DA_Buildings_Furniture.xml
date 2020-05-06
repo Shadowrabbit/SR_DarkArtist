@@ -268,10 +268,10 @@
       <label>poor mattress</label>
       <description>It's better than nothing.</description>
       <graphicData>
-        <texPath>Things/Building/Furniture/Bed/Bedroll</texPath>
+        <texPath>Things/Building/Furniture/Bed/Mattress</texPath>
         <graphicClass>Graphic_Multi</graphicClass>
         <shaderType>CutoutComplex</shaderType>
-        <drawSize>(1,2)</drawSize>
+        <drawSize>(4,4)</drawSize>
       </graphicData>
       <castEdgeShadows>True</castEdgeShadows>
       <statBases>
@@ -313,10 +313,10 @@
       <label>simple bed</label>
       <description>A makeshift bed, slightly uncomfortable but can save resources.</description>
       <graphicData>
-        <texPath>Things/Building/Furniture/Bed/Bed</texPath>
+        <texPath>Things/Building/Furniture/Bed/SimpleBed</texPath>
         <graphicClass>Graphic_Multi</graphicClass>
         <shaderType>CutoutComplex</shaderType>
-        <drawSize>(2,2)</drawSize>
+        <drawSize>(4,4)</drawSize>
         <damageData>
           <rect>(0,0.05,1,1.95)</rect>
         </damageData>
@@ -365,10 +365,10 @@
       <label>nice bed</label>
       <description>A beautiful bed.</description>
       <graphicData>
-        <texPath>Things/Building/Furniture/Bed/Bed</texPath>
+        <texPath>Things/Building/Furniture/Bed/FineBed</texPath>
         <graphicClass>Graphic_Multi</graphicClass>
         <shaderType>CutoutComplex</shaderType>
-        <drawSize>(2,2)</drawSize>
+        <drawSize>(4,4)</drawSize>
         <damageData>
           <rect>(0,0.05,1,1.95)</rect>
         </damageData>
@@ -418,10 +418,10 @@
       <label>double nice bed</label>
       <description>A beautiful bed that fits two people.</description>
       <graphicData>
-        <texPath>Things/Building/Furniture/Bed/DoubleBed</texPath>
+        <texPath>Things/Building/Furniture/Bed/FineDoubleBed</texPath>
         <graphicClass>Graphic_Multi</graphicClass>
         <shaderType>CutoutComplex</shaderType>
-        <drawSize>(2.05,2.05)</drawSize>
+        <drawSize>(4.05,4.05)</drawSize>
         <damageData>
           <rect>(0,0.05,2,1.95)</rect>
         </damageData>

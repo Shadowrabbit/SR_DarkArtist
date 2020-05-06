@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Administrator\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Administrator\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_SR_DarkArtist.901454065.00" t="ExcludeRecursive" />
+    <e p="E:\Mod\SR_DarkArtist\Assemblies" t="ExcludeRecursive" />
+    <e p="E:\Mod\SR_DarkArtist\Source\SR_DarkArtist" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="SR_DarkArtist" t="IncludeRecursive">
+        <e p="Component" t="Include">
+          <e p="CompEffectBondageBed.cs" t="Include" />
+          <e p="CompEffectBondageChains.cs" t="Include" />
+          <e p="CompEffectDarkWhip.cs" t="Include" />
+          <e p="CompEffectElectricChair.cs" t="Include" />
+          <e p="CompEffectElectromagneticBearHand.cs" t="Include" />
+          <e p="CompEffectTokenOfZEUS.cs" t="Include" />
+          <e p="CompHighVoltage.cs" t="Include" />
+          <e p="CompLayerExtension.cs" t="Include" />
+          <e p="CompProperties_HighVoltage.cs" t="Include" />
+          <e p="CompProperties_LayerExtension.cs" t="Include" />
+          <e p="CompRemoveEffectBondageBed.cs" t="Include" />
+          <e p="CompUsableAdvancedBondageBed.cs" t="Include" />
+          <e p="CompUsableBondageBed.cs" t="Include" />
+          <e p="CompUsableBondageChains.cs" t="Include" />
+          <e p="CompUsableElectricChair.cs" t="Include" />
+          <e p="CompUsableRemoveEffectChians.cs" t="Include" />
+          <e p="CompUsableTorture.cs" t="Include" />
+        </e>
+        <e p="Damage" t="Include">
+          <e p="DamageDefOf.cs" t="Include" />
+        </e>
+        <e p="Hediff" t="Include">
+          <e p="HediffDefOf.cs" t="Include" />
+        </e>
+        <e p="Job" t="Include">
+          <e p="JobDefOf.cs" t="Include" />
+          <e p="JobDriver_ReleaseBondageBed.cs" t="Include" />
+          <e p="JobDriver_ReleaseBondageChains.cs" t="Include" />
+          <e p="JobDriver_UseBondageBed.cs" t="Include" />
+          <e p="JobDriver_UseBondageChains.cs" t="Include" />
+          <e p="JobDriver_UseElectricChair.cs" t="Include" />
+          <e p="JobDriver_UseTokenOfAEUS.cs" t="Include" />
+          <e p="JobDriver_UseTorture.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Patch" t="Include">
+          <e p="Patch_Pawn.cs" t="Include" />
+          <e p="Patch_Pawn_CarryTracker.cs" t="Include" />
+          <e p="Patch_RestUtility.cs" t="Include" />
+          <e p="Patch_Room.cs" t="Include" />
+          <e p="PatchMain.cs" t="Include" />
+        </e>
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="SR_DarkArtist.csproj" t="IncludeRecursive" />
+        <e p="Thing" t="Include">
+          <e p="Building_AdvancedBondageBed.cs" t="Include" />
+          <e p="Building_BondageBed.cs" t="Include" />
+          <e p="Building_ElectricChair.cs" t="Include" />
+          <e p="ThingDefOf.cs" t="Include" />
+          <e p="ThingExtension.cs" t="Include" />
+        </e>
+        <e p="Thought" t="Include">
+          <e p="ThoughtDefOf.cs" t="Include" />
+          <e p="ThoughtWorker_BondageBed.cs" t="Include" />
+        </e>
+        <e p="Trait" t="Include">
+          <e p="TraitDefOf.cs" t="Include" />
+        </e>
+      </e>
+      <e p="SR_DarkArtist.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

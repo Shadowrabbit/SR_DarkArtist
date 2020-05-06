@@ -35,7 +35,7 @@
     <soundInteract>Interact_MonoSword</soundInteract>
     <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
     <graphicData>
-      <texPath>Things/Item/Equipment/WeaponMelee/Monosword</texPath>
+      <texPath>Things/Weapon/Sword</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <uiIconScale>1.1</uiIconScale>

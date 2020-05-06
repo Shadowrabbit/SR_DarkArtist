@@ -7,7 +7,7 @@
     <thingClass>ThingWithComps</thingClass>
     <description>It will reduce user's ability of manipulation and moving.</description>
     <graphicData>
-      <texPath>Things/Item/Special/SubpersonaCoreTechprof</texPath>
+      <texPath>Things/Item/Chains</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
@@ -98,7 +98,7 @@
     <thingClass>ThingWithComps</thingClass>
     <description>One of Van's instruments of torture, was once used by Bili to punish boys in the bright camp.</description>
     <graphicData>
-      <texPath>Things/Item/Special/SubpersonaCoreTechprof</texPath>
+      <texPath>Things/Item/DarkWhip</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
@@ -152,7 +152,7 @@
     <thingClass>ThingWithComps</thingClass>
     <description>One of Van's instruments of torture. A fork type tool with a weak current passing through the fork tip.</description>
     <graphicData>
-      <texPath>Things/Item/Special/SubpersonaCoreTechprof</texPath>
+      <texPath>Things/Item/ElectromagneticBearHand</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
