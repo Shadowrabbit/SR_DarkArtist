@@ -273,7 +273,7 @@
         <shaderType>CutoutComplex</shaderType>
         <drawSize>(4,4)</drawSize>
       </graphicData>
-      <castEdgeShadows>True</castEdgeShadows>
+      <castEdgeShadows>false</castEdgeShadows>
       <statBases>
         <Beauty>-5</Beauty>
         <MaxHitPoints>50</MaxHitPoints>
