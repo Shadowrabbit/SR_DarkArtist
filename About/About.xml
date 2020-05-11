@@ -2,7 +2,7 @@
 <ModMetaData>
 <packageId>SR.DarkArtist</packageId>
   <name>Dark Artist</name>
-  <author>Shadowrabbit</author>
+  <author>Shadowrabbit,金兔子拉面</author>
   <supportedVersions>
     <li>1.0</li>
     <li>1.1</li>
@@ -20,6 +20,6 @@
 		<li>Ludeon.RimWorld.Royalty</li>
 		<li>brrainz.harmony</li>
   </loadAfter>
-  <description>
+  <description>This mod contains two types of bondage bed which can be used to punish prisoners or help colonists through the withdrawal, four types of bed , and six types of torture.
   </description>
 </ModMetaData>

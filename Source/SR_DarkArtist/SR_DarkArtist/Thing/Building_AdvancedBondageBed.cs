@@ -7,7 +7,6 @@ namespace SR.DA.Thing
     public class Building_AdvancedBondageBed : Building_BondageBed
     {
         private static readonly Color SheetColorNormal = new Color(0.6313726f, 0.8352941f, 0.7058824f);
-        public override Color DrawColor => SheetColorNormal;
         public override Color DrawColorTwo => SheetColorNormal;
         /// <summary>
         /// label绘制
